@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='shortcut icon' href='/Logo6_Wpk.png'>
+    <title>히뮤의 놀이터</title>
+
+    <!-- Initialize firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyA2E6QMvs3fhlE0XBcGP5uGgdeIbkjyGzM",
+        authDomain: "himyu-playground.firebaseapp.com",
+        databaseURL: "https://himyu-playground.firebaseio.com",
+        projectId: "himyu-playground",
+        storageBucket: "",
+        messagingSenderId: "455014135012"
+      };
+      firebase.initializeApp(config);
+      var database=firebase.firestore();
+    </script>
+
+    <!-- Import Bootstrap4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+    <!-- Import custom files -->
+    <script src="/hashes.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row h-100">
+        <div class="col-3 bg-wpink aligner p-0">
+          <div class="w-100 aligner-item p-0">
+            <img src="/Logo6_Wht.png" class="mb-5" style="width:8rem;height:8rem;display:block;margin-left:auto;margin-right:auto;">
+            <button type="button" id="sidebar_about" class="btn btn-lg sidebar-button w-100" active>about</button>
+            <button type="button" id="sidebar_ask" class="btn btn-lg sidebar-button w-100">ask</button>
+            <button type="button" id="sidebar_works" class="btn btn-lg sidebar-button w-100">works</button>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="row h-100">
+            <div class="col"></div>
+            <div id="content_about" class="aligner">
+              <div class="w-100 aligner-item" v-if="seen">
+                <h3 class="fw-700 mb-3">프로필</h2>
+                <p class="fw-400 mb-5">
+                  2004년 6월 30일 태어났어요.<br>
+                  프로그래밍, 디자인, 영상 공부하고 있어요.<br>
+                  <a href="https://twitter.com/_himyu">Twitter</a> • <a href="mailto:himyuuuu1@gmail.com">Email</a> • <a href="https://github.com/himyu">Github</a> • <a href="https://www.youtube.com/channel/UChCzyDZJbObQbQiTGN9IsiQ?view_as=subscriber">Youtube</a>
+                </p>
+                <h3 class="fw-700 mb-3">그 외 이것저것</h2>
+                <p class="fw-400 mb-5">
+                  주로 Python3, Kotlin, C++ 정도를 써요.<br>
+                  물론 이 사이트는 HTML, JavaScript, CSS로 만들어졌어요.<br>
+                  보시는 바와 같이 퍼스널 컬러는 <a href="http://paletton.com/#uid=15-0u0kbEs-3vMg7fzXg-nKlfjx">#dc8c94</a>에요.<br>
+                  포켓몬, 보컬로이드/우타이테 좋아해요.<br>
+                  물렁물렁하고 처음엔 내성적이니 많이 다가와주세요.<br>
+                </p>
+                <h3 class="fw-700 mb-3">하고 싶은 말</h2>
+                <p class="fw-400">
+                  Java는 적폐입니다. 모두 Kotlin 쓰세요.
+                </p>
+              </div>
+            </div>
+            <div id="content_ask" class="aligner" style="max-width: 80%;overflow: auto;">
+              <div class="w-100 aligner-item aligner-item--top mt-5" v-if="seen" style="overflow: auto;">
+                <h3 class="fw-700 mb-3">에스크 (개발중)</h3>
+                <p class="fw-400 mb-3">
+                  질문을 남길 시, 질문자의 IP가 비공개적으로 영구히 기록됩니다.<br>
+                  만약 이곳에서 밝히지 않은 제 신상정보(이름, 전화번호 등)를 밝힐 시, IP 차단을 부여합니다.
+                </p>
+                <textarea type="text" id="question" class="form-control custom-input mb-3" placeholder="히뮤에게 질문을 남기세요!"></textarea>
+                <button type="button" id="submit" class="btn btn-block custom-button mb-5">질문하기</button>            
+                <div class="card w-100 mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title fw-700" style="max-width: 90%">이렇게 질문하세요!</h5>
+                    <p class="card-text fw-400">이렇게 답변이 달립니다.</p>
+                    <i class="fas fa-share-square absolute-topright"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="content_works" class="aligner">
+                <div class="w-100 aligner-item" v-if="seen">
+                  <h3 class="fw-700 mb-3">작업물</h3>
+                  <p class="fw-400 mb-3">
+                    있으면 올라갈 거에요.<br>
+                    사실 있는데 안 올리는 것이지만요.
+                  </p>
+                </div>
+              </div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      var content_about;
+      var content_ask;
+      var content_works;
+      $( document ).ready(function() {
+        content_about = new Vue({
+          el: '#content_about',
+          data: {
+            seen: true
+          }
+        });
+        content_ask = new Vue({
+          el: '#content_ask',
+          data: {
+            seen: false
+          }
+        });
+        content_works = new Vue({
+          el: '#content_works',
+          data: {
+            seen: false
+          }
+        });
+      });
+      $('#sidebar_about').click(function() {
+        $('#sidebar_about').attr("active", 0);
+        $("#sidebar_ask").removeAttr("active");
+        $("#sidebar_works").removeAttr("active");
+        content_about.seen=true;
+        content_ask.seen=false;
+        content_works.seen=false;
+      });
+      $('#sidebar_ask').click(function() {
+        $('#sidebar_ask').attr("active", 0);
+        $("#sidebar_works").removeAttr("active");
+        $("#sidebar_about").removeAttr("active");
+        content_ask.seen=true;
+        content_works.seen=false;
+        content_about.seen=false;
+      });
+      $('#sidebar_works').click(function() {
+        $('#sidebar_works').attr("active", 0);
+        $("#sidebar_about").removeAttr("active");
+        $("#sidebar_ask").removeAttr("active");
+        content_works.seen=true;
+        content_about.seen=false;
+        content_ask.seen=false;
+      });
+    </script>
+  </body>
+</html>
