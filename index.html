@@ -78,13 +78,15 @@
                 </p>
                 <textarea type="text" id="question" class="form-control custom-input mb-3" placeholder="히뮤에게 질문을 남기세요!"></textarea>
                 <button type="button" id="submit" class="btn btn-block custom-button mb-5">질문하기</button>            
-                <div class="card w-100 mb-3">
+                
+                <div class="card w-100 mb-3" v-for="card_data in cards">
                   <div class="card-body">
-                    <h5 class="card-title fw-700" style="max-width: 90%">이렇게 질문하세요!</h5>
-                    <p class="card-text fw-400">이렇게 답변이 달립니다.</p>
+                    <h5 class="card-title fw-700" style="max-width: 90%">{{ card_data.question }}</h5>
+                    <p class="card-text fw-400">{{ card_data.answer }}</p>
                     <i class="fas fa-share-square absolute-topright"></i>
                   </div>
                 </div>
+                
               </div>
             </div>
             <div id="content_works" class="aligner">
@@ -116,6 +118,11 @@
         content_ask = new Vue({
           el: '#content_ask',
           data: {
+            cards: [
+              { question: '질문 1', answer: '답변 1' },
+              { question: '질문 2', answer: '답변 2' },
+              { question: '질문 3', answer: '답변 3' }
+            ].reverse(),
             seen: false
           }
         });

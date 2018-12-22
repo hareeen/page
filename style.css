@@ -105,6 +105,7 @@ a, a:hover, a:active {
   color: white;
   border: none;
   border-radius: 0;
+  resize: none;
 }
 
 .custom-input::placeholder {
