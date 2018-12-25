@@ -88,7 +88,8 @@ $( document ).ready(function() {
 
   $('#submit').click(function() {
     var question=$("#question").val();
-    if(question.replace(/^\s+/, '').replace(/\s+$/, '')=='') {
+    question=question.replace(/^\s+/, '').replace(/\s+$/, '');
+    if(question=='') {
       alert("질문을 입력해 주세요!!")
       return;
     } 
