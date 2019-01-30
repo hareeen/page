@@ -1,7 +1,7 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 
-* {
+*:not(.fas) {
   outline: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -54,6 +54,21 @@ nav.theme-pink>.collapse>form>.btn {
 nav.theme-pink>.collapse>form>.btn:hover {
   color: var(--light-bg);
   border-color: var(--sec-light);
+  background: var(--sec-light);
+}
+
+.navbar-toggler {
+  border-radius: 0;
+  border: none;
+  padding-left: 10.65px;
+  padding-right: 10.65px;
+}
+
+.navbar-toggler.theme-blue {
+  background: var(--main-light);
+}
+
+.navbar-toggler.theme-pink {
   background: var(--sec-light);
 }
 

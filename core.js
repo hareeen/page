@@ -114,62 +114,42 @@ $(document).ready(function () {
 
   update_questions();
 
-  $('a').addClass("theme-blue");
-  $('nav').addClass("theme-blue");
-  $('.card').addClass("theme-blue");
-  $('.custom-button').addClass("theme-blue");
-  $('.custom-input').addClass("theme-blue");
+  Array.prototype.addC=function(s) {
+    this.forEach(element => {
+      $(element).addClass(s);
+    });
+    return
+  }
+
+  Array.prototype.remC=function(s) {
+    this.forEach(element => {
+      $(element).removeClass(s);
+    });
+    return
+  }
+
+  var target_elements=['a', 'nav', '.card', '.custom-button', '.custom-input', '.navbar-toggler'];
+
+  target_elements.addC('theme-blue');
 
   $('#nav_ctheme').click(function () {
     if (t_tg) {
-      $('a').removeClass("theme-blue");
-      $('nav').removeClass("theme-blue");
-      $('.card').removeClass("theme-blue");
-      $('.custom-button').removeClass("theme-blue");
-      $('.custom-input').removeClass("theme-blue");
-      $('a').addClass("theme-pink");
-      $('nav').addClass("theme-pink");
-      $('.card').addClass("theme-pink");
-      $('.custom-button').addClass("theme-pink");
-      $('.custom-input').addClass("theme-pink");
+      target_elements.remC('theme-blue');
+      target_elements.addC('theme-pink');
     } else {
-      $('a').removeClass("theme-pink");
-      $('nav').removeClass("theme-pink");
-      $('.card').removeClass("theme-pink");
-      $('.custom-button').removeClass("theme-pink");
-      $('.custom-input').removeClass("theme-pink");
-      $('a').addClass("theme-blue");
-      $('nav').addClass("theme-blue");
-      $('.card').addClass("theme-blue");
-      $('.custom-button').addClass("theme-blue");
-      $('.custom-input').addClass("theme-blue");
+      target_elements.remC('theme-pink');
+      target_elements.addC('theme-blue');
     }
     t_tg = !t_tg
   });
 
   $('#sidebar_ask').click(function () {
     if (!t_tg) {
-      $('a').removeClass("theme-blue");
-      $('nav').removeClass("theme-blue");
-      $('.card').removeClass("theme-blue");
-      $('.custom-button').removeClass("theme-blue");
-      $('.custom-input').removeClass("theme-blue");
-      $('a').addClass("theme-pink");
-      $('nav').addClass("theme-pink");
-      $('.card').addClass("theme-pink");
-      $('.custom-button').addClass("theme-pink");
-      $('.custom-input').addClass("theme-pink");
+      target_elements.remC('theme-blue');
+      target_elements.addC('theme-pink');
     } else {
-      $('a').removeClass("theme-pink");
-      $('nav').removeClass("theme-pink");
-      $('.card').removeClass("theme-pink");
-      $('.custom-button').removeClass("theme-pink");
-      $('.custom-input').removeClass("theme-pink");
-      $('a').addClass("theme-blue");
-      $('nav').addClass("theme-blue");
-      $('.card').addClass("theme-blue");
-      $('.custom-button').addClass("theme-blue");
-      $('.custom-input').addClass("theme-blue");
+      target_elements.remC('theme-pink');
+      target_elements.addC('theme-blue');
     }
   });
 });
