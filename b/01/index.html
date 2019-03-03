@@ -1,0 +1,645 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>publickeyCrypto</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:first-child { margin-top: -20px; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid-page; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; background-repeat: initial initial; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); background-position: initial initial; background-repeat: initial initial; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;}
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><p>190304</p><h1><a name='header-n0' class='md-header-anchor '></a>Public-Key Cryptosystems</h1><p>a.k.a. 공개키 암호</p><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#header-n0">Public-Key Cryptosystems</a></span><span class="md-toc-item md-toc-h2" data-ref="n10"><a class="md-toc-inner" href="#header-n10">개요</a></span><span class="md-toc-item md-toc-h3" data-ref="n31"><a class="md-toc-inner" href="#header-n31">공개 키 암호란?</a></span><span class="md-toc-item md-toc-h4" data-ref="n38"><a class="md-toc-inner" href="#header-n38">대칭 키 암호</a></span><span class="md-toc-item md-toc-h4" data-ref="n32"><a class="md-toc-inner" href="#header-n32">공개 키 암호</a></span><span class="md-toc-item md-toc-h3" data-ref="n81"><a class="md-toc-inner" href="#header-n81">RSA 암호</a></span><span class="md-toc-item md-toc-h4" data-ref="n86"><a class="md-toc-inner" href="#header-n86">키의 생성</a></span><span class="md-toc-item md-toc-h4" data-ref="n113"><a class="md-toc-inner" href="#header-n113">암호화 및 복호화</a></span><span class="md-toc-item md-toc-h2" data-ref="n45"><a class="md-toc-inner" href="#header-n45">이론적 배경</a></span><span class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#header-n34">시간 복잡도</a></span><span class="md-toc-item md-toc-h4" data-ref="n144"><a class="md-toc-inner" href="#header-n144">Big-O Notation</a></span><span class="md-toc-item md-toc-h3" data-ref="n163"><a class="md-toc-inner" href="#header-n163">유클리드 호제법</a></span><span class="md-toc-item md-toc-h4" data-ref="n190"><a class="md-toc-inner" href="#header-n190">확장된 유클리드 호제법</a></span><span class="md-toc-item md-toc-h3" data-ref="n422"><a class="md-toc-inner" href="#header-n422">오일러의 정리</a></span><span class="md-toc-item md-toc-h4" data-ref="n424"><a class="md-toc-inner" href="#header-n424">오일러-파이 함수</a></span><span class="md-toc-item md-toc-h3" data-ref="n304"><a class="md-toc-inner" href="#header-n304">Addition-chain exponentiation</a></span><span class="md-toc-item md-toc-h3" data-ref="n233"><a class="md-toc-inner" href="#header-n233">이차잉여</a></span><span class="md-toc-item md-toc-h4" data-ref="n235"><a class="md-toc-inner" href="#header-n235">정의</a></span><span class="md-toc-item md-toc-h4" data-ref="n245"><a class="md-toc-inner" href="#header-n245">성질</a></span><span class="md-toc-item md-toc-h4" data-ref="n279"><a class="md-toc-inner" href="#header-n279">구현</a></span><span class="md-toc-item md-toc-h3" data-ref="n288"><a class="md-toc-inner" href="#header-n288">Solovay-Strassen primality test</a></span><span class="md-toc-item md-toc-h2" data-ref="n18"><a class="md-toc-inner" href="#header-n18">구현</a></span><span class="md-toc-item md-toc-h3" data-ref="n306"><a class="md-toc-inner" href="#header-n306">지수 계산</a></span><span class="md-toc-item md-toc-h4" data-ref="n371"><a class="md-toc-inner" href="#header-n371">Without Addition-chain exponentiation</a></span><span class="md-toc-item md-toc-h4" data-ref="n391"><a class="md-toc-inner" href="#header-n391">With Addition-chain exponentiation</a></span><span class="md-toc-item md-toc-h3" data-ref="n406"><a class="md-toc-inner" href="#header-n406">유클리드 호제법</a></span><span class="md-toc-item md-toc-h4" data-ref="n414"><a class="md-toc-inner" href="#header-n414">Extended</a></span><span class="md-toc-item md-toc-h3" data-ref="n450"><a class="md-toc-inner" href="#header-n450">Solovay-Strassen primality test</a></span><span class="md-toc-item md-toc-h4" data-ref="n460"><a class="md-toc-inner" href="#header-n460">큰 소수 찾기</a></span><span class="md-toc-item md-toc-h3" data-ref="n470"><a class="md-toc-inner" href="#header-n470">키 생성</a></span><span class="md-toc-item md-toc-h3" data-ref="n481"><a class="md-toc-inner" href="#header-n481">암호화 및 복호화</a></span><span class="md-toc-item md-toc-h2" data-ref="n386"><a class="md-toc-inner" href="#header-n386">참고자료</a></span></p></div><h2><a name='header-n10' class='md-header-anchor '></a>개요</h2><h3><a name='header-n31' class='md-header-anchor '></a>공개 키 암호란?</h3><h4><a name='header-n38' class='md-header-anchor '></a>대칭 키 암호</h4><p><img src='/Users/himyu/Desktop/himyu/School/9G/고입/pkC_images1.png' alt='pkC_images1' referrerPolicy='no-referrer' /></p><p><strong>대칭 키 암호 (Symmetric-key Cryptosystem)</strong> 는, 암호화 방식의 하나로, 암호화와 복호화에 같은 암호 키를 쓰는 방식을 의미한다. 따라서, 대칭 키 암호에서는 암호화를 하는 측과 복호화를 하는 측이 같은 암호 키를 공유해야 한다.</p><p>이 방식은 후술할 공개 키 암호 방식에 비해 크게 단순하며 빠르게 암호화 및 복호화가 가능하다는 장점이 있다. 그러나, 시간이 지남에 따라 암호화하여 주고받을 데이터가 많아지고, 그 대상들이 다양화되면서 각 사용자들이 모든 통신에 공통 암호 키를 주고받기 어려워지는 문제가 발생하였다.</p><h4><a name='header-n32' class='md-header-anchor '></a>공개 키 암호</h4><p><img src='/Users/himyu/Desktop/himyu/School/9G/고입/pkC_images2.png' alt='pkC_images2' referrerPolicy='no-referrer' /></p><p><strong>공개 키 암호 (Public-key Cryptosystem)</strong> 는, 역시 암호화 방식의 하나로, 암호화와 복호화에 다른 암호 키를 사용한다. 같은 암호 키를 쓰는 대칭 키 암호에 비교하여, <strong>비대칭 키 암호</strong>로도 불린다.</p><p>공개 키 암호에서는, 각 사용자들이 <strong>공개 키</strong>와 <strong>비밀 키</strong>를 각각 하나씩 가진다. 이 2개의 키는 상보성을 가지고 있어, 공개 키로 암호화된 평문은 비밀 키로만 복호화할 수 있고, 그 반대 역시 성립한다. 이에, 수신자가 발신자의 공개 키로 평문을 암호화하여 보내면, 발신자는 자신의 비밀 키로 암호문을 복호화시킬 수 있고, 이렇게 암호화된 암호문은 비밀 키를 가지고 있는 발신자를 제외한 어떤 사용자도 복호화시킬 수 없다.</p><p>이 방식을 통해, 암호 키의 상호 교환이 필수적이지 않게 되어, 기존 대칭 키 암호의 문제점을 해결할 수 있게 되었다. 하지만, 이 방식은 대칭 키 암호에 비해 복잡한 수학 계산이 요구되기 때문에, 암호화 밒 복호화가 상당히 느리다. 그러나, 이 문제점은 공개 키 암호를 통해 대칭 키 암호의 공통 암호 키를 교환함으로써, 충분히 해결될 수 있다.</p><h3><a name='header-n81' class='md-header-anchor '></a>RSA 암호</h3><p><strong>RSA 암호</strong> 는 공개 키 암호의 하나로, 최초의 전자서명이 가능한 공개 키 암호로 알려져 있다. 1978년, MIT의 Ron Rivest, Adi Shamir와 Leonard Adleman의 연구에 의해 체계화되었으며, RSA란 이름은 이들의 이름의 앞글자를 따 만들어졌다. 이 글의 대부분은 그들의 연구논문을 바탕으로 작성되었다.</p><h4><a name='header-n86' class='md-header-anchor '></a>키의 생성</h4><p>RSA 암호의 공개 키와 비밀 키는 다음과 같은 방식으로 생성되고, 그 안정성은 임의의 수를 소인수분해하는 것이 NP 문제라는 것에 기반해 있다.</p><ol><li>충분히 큰  두 소수 <span class='math-in-toc'>p \neq q</span> 를 고른다.</li><li>두 수를 곱하여 <span class='math-in-toc'>N=pq</span> 를 계산한다.</li><li><span class='math-in-toc'>\phi (N)=(p-1)(q-1)</span> 을 계산한다. (<span class='math-in-toc'>\phi</span>: 오일러 파이 함수)</li><li><span class='math-in-toc'>e\ s.t.\ e&lt;\phi(N),\ gcd(e, \phi(N))=1 </span> 을 찾는다. (<span class='math-in-toc'>gcd</span>: 최대공약수)</li><li><span class='math-in-toc'>e</span> 의 <span class='math-in-toc'>mod\ \phi(N)</span> 에 대한 잉여역수 <span class='math-in-toc'>d</span> 를 찾는다. </li><li>이때, 공개 키는 <span class='math-in-toc'>&lt;e, N&gt;</span> 이고, 비밀 키는 <span class='math-in-toc'>&lt;d, N&gt;</span> 이다.</li></ol><h4><a name='header-n113' class='md-header-anchor '></a>암호화 및 복호화</h4><p>키 <span class='math-in-toc'>&lt;a, b&gt;</span> 에 대해, 평문/암호문을 양의 정수 <span class='math-in-toc'>c&lt;b</span> 의 나열로 변환 가능하다. 이때, 각 <span class='math-in-toc'>c</span> 에 대해 다음과 같은 시행을 하여 암호화/복호화된 결과 <span class='math-in-toc'>r</span> 을 얻는다.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n125" cid="n125" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">r=c^a\ mod\ N</script></div></div><p>이 과정을 통해, 평문을 암호화 후 복호화한 결과는 <span class='math-in-toc'>c^{de}</span> 가 되고, 후술할 오일러 파이 정리에 의해 <span class='math-in-toc'>c^{de}=c\ (mod\ N)</span> 이 되어, 암호가 타당함을 알 수 있다.</p><p>이 암호에서  <span class='math-in-toc'>d,\ N</span> 를 알고 있더라도 <span class='math-in-toc'>p, q </span> 를 모르면, <span class='math-in-toc'>\phi(N)</span> 을 구하는 것이 매우 어려우므로, <span class='math-in-toc'>e</span> 를 구해내는 것이 사실상 불가능하다. 따라서, RSA 암호는 공개 키 암호의 조건을 만족함을 알 수 있다.</p><h2><a name='header-n45' class='md-header-anchor '></a>이론적 배경</h2><h3><a name='header-n34' class='md-header-anchor '></a>시간 복잡도</h3><p>알고리즘에서, <strong>시간 복잡도</strong>는 문제를 해결하는 데 걸리는 시간과 입력의 함수 관계를 가리킨다. 이때 기본 연산 (사칙연산, 대입 연산, mod 연산)에 걸리는 연산이 고정된 상수 값으로 가정하므로, 문제를 해결하는 데 걸리는 시간은 기본 연산량에 비례하여 나타난다.</p><h4><a name='header-n144' class='md-header-anchor '></a>Big-O Notation</h4><p>충분히 큰 입력에 대하여, 일반적인 시간 복잡도에서 주로 하나의 항이 전체 시간 복잡도에 지배적인 영향을 가한다. 따라서, 다음과 같이 정의되는 <strong>Big-O 표기법</strong>을 사용해 알고리즘의 시간 복잡도를 단순화한다. </p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n158" cid="n158" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">f(x)=O(g(x))\Leftrightarrow \exists_{M, x_0}\ s.t.\forall_{x>x_0}\ |f(x)| \leq M|g(x)|</script></div></div><p>일례로, <span class='math-in-toc'>O(29x^3+140x^2+7209x+123801)=x^3</span> 이 된다.</p><h3><a name='header-n163' class='md-header-anchor '></a>유클리드 호제법</h3><p><strong>유클리드 호제법</strong>은, 주어진 두 정수 <span class='math-in-toc'>a&gt;b</span>의 최대 공약수를 구하는 간단하고 빠른 알고리즘으로, 약 <span class='math-in-toc'>O(log\ a) = O(log\ b)</span> 의 시간 복잡도를 가진다.</p><p>유클리드 호제법은 다음 식이 성립함을 기반으로 한다. (이하의 모든 식들의 증명은 생략한다.)</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n186" cid="n186" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">gcd(a, b)=gcd(b, a\ mod\ b)</script></div></div><h4><a name='header-n190' class='md-header-anchor '></a>확장된 유클리드 호제법</h4><p>다음 방법을 통해 <span class='math-in-toc'>sa+tb=gcd(a, b)</span> 를 만족하는 <span class='math-in-toc'>s, t</span> 를 유클리드 호제법의 시간 복잡도에 구해낼 수 있다.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n199" cid="n199" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">s_0=1, s_1=0, t_0=0, t_1=1, r_0=a, r_1=b \\
+q_i=floor(r_{i-1}/r_i)\\
+r_i=r_{i-1}\ mod\ r_{i-2}\\
+s_i=s_{i-2}-s_{i-1} \cdot q_{i-1}\\
+t_i=t_{i-2}-t_{i-1} \cdot q_{i-1}\\
+\exist_z\ s.t.\ r_z=0 \Rightarrow s=s_{z-1}, t=t_{z-1}</script></div></div><p>특히, <span class='math-in-toc'>gcd(a, b)=1</span> 이라면 <span class='math-in-toc'>t</span> 가 <span class='math-in-toc'>b</span> 의 <span class='math-in-toc'>mod\ a</span> 에 대한 잉여역수가 된다. </p><h3><a name='header-n422' class='md-header-anchor '></a>오일러의 정리</h3><p>서로소인 양의 정수 <span class='math-in-toc'>a, n</span> 에 대해, 다음이 성립한다.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n444" cid="n444" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">a^{\phi(n)} \equiv q \pmod n</script></div></div><h4><a name='header-n424' class='md-header-anchor '></a>오일러-파이 함수</h4><p>양의 정수 <span class='math-in-toc'>N</span> 에 대해, <strong>오일러-파이 함수</strong> <span class='math-in-toc'>\phi(N)</span> 은 다음과 같이 정의된다.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n437" cid="n437" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">\phi(N)=|\{k\in\{1,\dots,N\}\colon\gcd\{k,N\}=1\}|</script></div></div><p><span class='math-in-toc'>n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}</span> 에서, 다음과 같이 계산 가능하다.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n441" cid="n441" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">\phi(n)=n\prod_{p\mid n}\left(1-{1 \over p}\right)</script></div></div><h3><a name='header-n304' class='md-header-anchor '></a>Addition-chain exponentiation</h3><p><span class='math-in-toc'>n^e</span> 의 연산에서, 거듭제곱의 정의에 따라 계산하면 시간 복잡도가 <span class='math-in-toc'>O(e)</span> 가 되지만, RSA에서는 위에서 살펴보았던 것과 같이 큰 수를 지수로 갖는 거듭제곱 연산이 요구되므로 부적절하다. 따라서, 다음과 같은 알고리즘을 통해 <span class='math-in-toc'>O(log\ e)</span> 의 시간 복잡도에 거듭제곱 연산을 수행할 수 있다.</p><ol><li><span class='math-in-toc'>m=n, i=1, r=1</span></li><li><span class='math-in-toc'>e</span> 의 2진법 표현 <span class='math-in-toc'>e_ke_{k-1}\ … \ e_2e_1</span> 을 생각하자.</li><li><span class='math-in-toc'>i=k</span> 까지 4~6을 반복한다.</li><li><span class='math-in-toc'>e_i</span> 가 1일 경우, <span class='math-in-toc'>r</span> 에 <span class='math-in-toc'>m</span> 을 곱한다.</li><li><span class='math-in-toc'>m</span> 을 제곱한다. (이로 인해, 4에서 <span class='math-in-toc'>m</span> 은 귀납적으로 <span class='math-in-toc'>n^{2^{i-1}}</span> 이다.</li><li><span class='math-in-toc'>i</span> 를 1 증가시킨다.</li></ol><p>이때, 4~6을 <span class='math-in-toc'>k</span> 번만 반복하므로 시간 복잡도는 <span class='math-in-toc'>O(log\ e)</span> 가 된다.</p><h3><a name='header-n233' class='md-header-anchor '></a>이차잉여</h3><h4><a name='header-n235' class='md-header-anchor '></a>정의</h4><p>양의 정수 <span class='math-in-toc'>a</span> 와 <span class='math-in-toc'> b \equiv 1(mod\ 2)</span> 로 제한해,  <span class='math-in-toc'>(\frac{a}{p})</span> 를 다음과 같이 정의하자.</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n240" cid="n240" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">\left(\frac{a}{p}\right)=\begin{cases}
+1,& (\exists x\in \mathbb{Z})[x^2 = a]\\
+-1,& (\forall x\in\mathbb{Z})[x^2\ne a]
+\end{cases}</script></div></div><p>이 기호를 르장드르 기호(Legendre Symbol)의 확장인 <strong>야코비 기호(Jacobi Symbol)</strong>이라 하고, 윗 경우에는 <span class='math-in-toc'>a</span> 를 <span class='math-in-toc'>mod\ b</span> 에 대한 <strong>이차잉여</strong>라고 하고, 그렇지 않으면 <span class='math-in-toc'>a</span> 를 <span class='math-in-toc'>mod\ b</span> 에 대한 <strong>비이차잉여</strong>라고 한다.</p><h4><a name='header-n245' class='md-header-anchor '></a>성질</h4><ul><li><span class='math-in-toc'>n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}</span> 에서 <span class='math-in-toc'>\left(\frac{a}{n}\right) = \left(\frac{a}{p_1}\right)^{\alpha_1}\left(\frac{a}{p_2}\right)^{\alpha_2}\cdots \left(\frac{a}{p_k}\right)^{\alpha_k}</span> 이다.</li><li><span class='math-in-toc'>\left(\frac{ab}{n}\right) = \left(\frac{a}{n}\right)\left(\frac{b}{n}\right)</span> </li><li><span class='math-in-toc'>\left(\frac{m}{n}\right)\left(\frac{n}{m}\right) = (-1)^{\tfrac{m-1}{2}\cdot\tfrac{n-1}{2}}</span> (이차 상호 법칙)</li><li><span class='math-in-toc'>\left(\frac{2}{n}\right) = (-1)^\tfrac{n^2-1}{8} =
+\begin{cases} 1 &amp; \text{if }n \equiv 1,7 \pmod 8\\
+-1 &amp; \text{if }n \equiv 3,5\pmod 8
+\end{cases}</span> </li></ul><h4><a name='header-n279' class='md-header-anchor '></a>구현</h4><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n281" cid="n281" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">\left(\frac{a}{b}\right) =
+\begin{cases} 1 & \text{if }a = 1\\
+\left(\frac{a/2}{b}\right)\times (-1)^{b^2-1 \over 8} & \text{if }a \equiv 0\pmod 2\\
+\left(\frac{b\pmod a}{a}\right)\times (-1)^{(a-1)(b-1) \over 4} & \text{otherwise}
+\end{cases}</script></div></div><p>이 알고리즘은 평균적으로 <span class='math-in-toc'>O(log\ a \times log\ b)</span> 의 시간 복잡도를 가진다.</p><h3><a name='header-n288' class='md-header-anchor '></a>Solovay-Strassen primality test</h3><p>소수 <span class='math-in-toc'>p</span> 와 모든 양의 정수 <span class='math-in-toc'>a&lt;p</span> 에 대해 다음이 무조건 성립한다. (르장드르 기호의 성질)</p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n292" cid="n292" mdtype="math_block">
+
+		<div class="md-rawblock-container md-math-container" tabindex="-1"><script type="math/tex; mode=display">gcd(a, p)=1, \left({a \over p} \right) \equiv a^{p-1 \over 2}</script></div></div><p>만약 <span class='math-in-toc'>p</span> 가 합성수일 경우, 위의 식은 적어도 <span class='math-in-toc'>{1 \over 2}</span> 의 확률로 거짓이 된다.</p><p>이 알고리즘은 테스트 한 번 당 평균적으로 <span class='math-in-toc'>O(log\ a \times log\ b)</span> 의 시간 복잡도를 가진다.</p><p>따라서, 임의의 <span class='math-in-toc'>a</span> 에 대해 이 테스트를 <span class='math-in-toc'>n</span> 번 반복하면 적어도 <span class='math-in-toc'>1-{1 \over 2^n}</span> 의 정확도를 보장받는다. <span class='math-in-toc'>n=64</span> 만 되더라도 이 테스트가 틀릴 확률은 <span class='math-in-toc'>2^{-64}\approx 5 \times 10^{-20}</span> 이 되어 일반적으로 무시 가능해진다.</p><h2><a name='header-n18' class='md-header-anchor '></a>구현</h2><p>모든 구현 및 테스트는 python3.7, macOS 10.14.2 @ i7-7700K, 32G RAM에서 진행되었다.</p><p>모든 소스 코드는 <a href='https://github.com/himyu/publickeyCrypto' target='_blank' class='url'>https://github.com/himyu/publickeyCrypto</a> 에 공개되어 있다.</p><h3><a name='header-n306' class='md-header-anchor '></a>지수 계산</h3><p>실행 시간은 <span class='math-in-toc'>3^{100000}\ mod\ 7</span> 을 계산하는 시간이다. </p><h4><a name='header-n371' class='md-header-anchor '></a>Without Addition-chain exponentiation</h4><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">pow_simple</span>(<span class="cm-variable">n</span>, <span class="cm-variable">e</span>, <span class="cm-variable">MOD</span>): &nbsp;<span class="cm-comment"># O(e)</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable cm-error">_mul</span> = <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">_</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">e</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">_mul</span> *= <span class="cm-variable">n</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">_mul</span> %= <span class="cm-variable">MOD</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">return</span> <span class="cm-variable">_mul</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 132px;"></div><div class="CodeMirror-gutters" style="display: none; height: 132px;"></div></div></div></pre><p>실행 시간:</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">5.39 ms ± 11.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 22px;"></div><div class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre><h4><a name='header-n391' class='md-header-anchor '></a>With Addition-chain exponentiation</h4><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">pow_fast</span>(<span class="cm-variable">n</span>, <span class="cm-variable">e</span>, <span class="cm-variable">MOD</span>): &nbsp;<span class="cm-comment"># O(log e)</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable cm-error">_mul</span> = <span class="cm-variable">n</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">_res</span> = <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">for</span> <span class="cm-variable">digit</span> <span class="cm-keyword">in</span> <span class="cm-builtin">str</span>(<span class="cm-builtin">bin</span>(<span class="cm-variable">e</span>))[<span class="cm-number">2</span>:][::<span class="cm-operator">-</span><span class="cm-number">1</span>]:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">digit</span> == <span class="cm-string">'1'</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable cm-error">_res</span> *= <span class="cm-variable">_mul</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">_res</span> %= <span class="cm-variable">MOD</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">_mul</span> *= <span class="cm-variable">_mul</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">_mul</span> %= <span class="cm-variable">MOD</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">return</span> <span class="cm-variable">_res</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 220px;"></div><div class="CodeMirror-gutters" style="display: none; height: 220px;"></div></div></div></pre><p>실행 시간:</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1.79 µs ± 5.59 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 22px;"></div><div class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre><p>Addition-chain exponentiation의 적용으로, 평균 실행 시간이 약 3000배 단축됨을 확인 가능하다.</p><h3><a name='header-n406' class='md-header-anchor '></a>유클리드 호제법</h3><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">gcd</span>(<span class="cm-variable">a</span>, <span class="cm-variable">b</span>): &nbsp;<span class="cm-comment"># 유클리드 호제법</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">return</span> <span class="cm-variable">a</span> <span class="cm-keyword">if</span> <span class="cm-variable">b</span> == <span class="cm-number">0</span> <span class="cm-keyword">else</span> <span class="cm-variable">gcd</span>(<span class="cm-variable">b</span>, <span class="cm-variable">a</span> <span class="cm-operator">%</span> <span class="cm-variable">b</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 44px;"></div><div class="CodeMirror-gutters" style="display: none; height: 44px;"></div></div></div></pre><h4><a name='header-n414' class='md-header-anchor '></a>Extended</h4><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 잉여역수 구하기 (Extended Euclidian Algorithm)</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">get_arithmetic_inv</span>(<span class="cm-variable">r1</span>, <span class="cm-variable">r2</span>, <span class="cm-variable">s1</span>=<span class="cm-number">1</span>, <span class="cm-variable">s2</span>=<span class="cm-number">0</span>, <span class="cm-variable">t1</span>=<span class="cm-number">0</span>, <span class="cm-variable">t2</span>=<span class="cm-number">1</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">if</span> <span class="cm-variable">r1</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">r2</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">r1</span>, <span class="cm-variable">r2</span> = <span class="cm-variable">r2</span>, <span class="cm-variable">r1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable cm-error">r</span> = <span class="cm-variable">r1</span> <span class="cm-operator">%</span> <span class="cm-variable">r2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">q</span> = <span class="cm-variable">r1</span> <span class="cm-operator">//</span> <span class="cm-variable">r2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable cm-error">s</span> = <span class="cm-variable">s1</span> <span class="cm-operator">-</span> <span class="cm-variable">s2</span> <span class="cm-operator">*</span> <span class="cm-variable">q</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">t</span> = <span class="cm-variable">t1</span> <span class="cm-operator">-</span> <span class="cm-variable">t2</span> <span class="cm-operator">*</span> <span class="cm-variable">q</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">return</span> <span class="cm-variable">t2</span> <span class="cm-keyword">if</span> <span class="cm-variable">r</span> == <span class="cm-number">0</span> <span class="cm-keyword">else</span> <span class="cm-variable">get_arithmetic_inv</span>(<span class="cm-variable">r2</span>, <span class="cm-variable">r</span>, <span class="cm-variable">s2</span>, <span class="cm-variable">s</span>, <span class="cm-variable">t2</span>, <span class="cm-variable">t</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 198px;"></div><div class="CodeMirror-gutters" style="display: none; height: 198px;"></div></div></div></pre><p>실행시간 (50자리 소수의 법 (100자리 소수)에 대한 잉여역수 구하기):</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">44.4 µs ± 433 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 22px;"></div><div class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre><h3><a name='header-n450' class='md-header-anchor '></a>Solovay-Strassen primality test</h3><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">primality_test</span>(<span class="cm-variable">p</span>, <span class="cm-variable">loops</span>): &nbsp;<span class="cm-comment"># Solovay-Strassen Primality Test</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword cm-error">for</span> <span class="cm-variable">_</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">loops</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">r</span> = <span class="cm-variable">random</span>.<span class="cm-property">randint</span>(<span class="cm-number">1</span>, <span class="cm-variable">p</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-keyword">not</span> (<span class="cm-variable">gcd</span>(<span class="cm-variable">r</span>, <span class="cm-variable">p</span>) == <span class="cm-number">1</span> <span class="cm-keyword">and</span> <span class="cm-variable">jacobi</span>(<span class="cm-variable">r</span>, <span class="cm-variable">p</span>) <span class="cm-operator">%</span> <span class="cm-variable">p</span> == <span class="cm-variable">pow_fast</span>(<span class="cm-variable">r</span>, (<span class="cm-variable">p</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>) <span class="cm-operator">//</span> <span class="cm-number">2</span>, <span class="cm-variable">p</span>)):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword cm-error">return</span> <span class="cm-keyword">False</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">True</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 154px;"></div><div class="CodeMirror-gutters" style="display: none; height: 154px;"></div></div></div></pre><p>실행 시간 (100자리 소수를 64회 테스트):</p><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="" contenteditable="false" cid="n458" mdtype="fences">33.4 ms ± 365 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre><h4><a name='header-n460' class='md-header-anchor '></a>큰 소수 찾기</h4><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="python" contenteditable="false" cid="n462" mdtype="fences">def generate_prime(digits, prec):
+  while True:
+    p = random.randint(10**(digits - 1), 10**digits - 1)
+    if p % 2 == 1 and primality_test(p, prec):
+      return p
+</pre><p>실행 시간 (임의의 100자리 소수 찾기):</p><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="" contenteditable="false" cid="n469" mdtype="fences">83 ms ± 14.6 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre><p>무작위성을 기반으로 하고 있기 때문에 실행 시간의 편차가 크다.</p><h3><a name='header-n470' class='md-header-anchor '></a>키 생성</h3><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="python" contenteditable="false" cid="n473" mdtype="fences" style="page-break-inside: unset;">def generate_keypair(base_digits=100, prec=64):
+  err_allow = base_digits // 20
+
+  def digits_with_err(): return random.randint(-err_allow, err_allow) + base_digits
+  prime_pair = (generate_prime(digits_with_err(), prec),
+                generate_prime(digits_with_err(), prec))
+  n = prime_pair[0] * prime_pair[1]
+  phi_n = (prime_pair[0] - 1) * (prime_pair[1] - 1)
+  d = generate_prime(len(str(max(prime_pair))) +
+                     random.randint(0, 4 * err_allow), prec)
+  e = get_arithmetic_inv(phi_n, d) % phi_n
+
+  return ((e, n),  # public key
+          (d, n))  # private key
+</pre><p>실행 시간 (<span class='math-in-toc'>p, q</span> 가 100 ± 5자리 소수):</p><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="python" contenteditable="false" cid="n479" mdtype="fences">264 ms ± 22.3 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre><h3><a name='header-n481' class='md-header-anchor '></a>암호화 및 복호화</h3><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="python" contenteditable="false" cid="n483" mdtype="fences" style="page-break-inside: unset;">def apply_key(n, key):
+  return pow_fast(n, key[0], key[1])
+
+
+def encrypt_message(key_public, message):
+  ascii_message = base64.b64encode(message.encode()).decode()
+  message_number = list(map(ord, ascii_message))
+  encrypted = list(
+      map(lambda x: str(apply_key(x, key_public)).rjust(len(str(key_public[1])), '0'), message_number))
+  return ' '.join(encrypted)
+
+
+def decrypt_message(key_private, message_enc):
+  decrypted = list(map(lambda x: apply_key(
+      int(x), key_private), message_enc.split()))
+  decrypted_chr = list(map(chr, decrypted))
+  return base64.b64decode(''.join(decrypted_chr).encode()).decode()
+</pre><p>여기서 base64를 사용하였는데, 이는 여러 언어의 평문 문자열을 ascii 내의 문자로 바꾸어 문자열을 수열으로 변환시키기 위해서이다.</p><p>실행 시간 (12바이트 문자열 <code>Hello World!</code> 를 암호화 후 복호화):</p><pre spellcheck="false" class="md-fences mock-cm md-end-block" lang="" contenteditable="false" cid="n491" mdtype="fences">32.1 ms ± 188 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre><h2><a name='header-n386' class='md-header-anchor '></a>참고자료</h2><ul><li><a href='https://joonas.tistory.com/25' target='_blank' class='url'>https://joonas.tistory.com/25</a></li><li><a href='https://en.wikipedia.org/wiki/Solovay%E2%80%93Strassen_primality_test' target='_blank' class='url'>https://en.wikipedia.org/wiki/Solovay%E2%80%93Strassen_primality_test</a></li><li><a href='https://ko.wikipedia.org/wiki/%EB%8C%80%EC%B9%AD_%ED%82%A4_%EC%95%94%ED%98%B8' target='_blank' class='url'>https://ko.wikipedia.org/wiki/%EB%8C%80%EC%B9%AD_%ED%82%A4_%EC%95%94%ED%98%B8</a></li><li><a href='https://ko.wikipedia.org/wiki/RSA_%EC%95%94%ED%98%B8' target='_blank' class='url'>https://ko.wikipedia.org/wiki/RSA_%EC%95%94%ED%98%B8</a></li><li><a href='https://librewiki.net/wiki/%EB%A5%B4%EC%9E%A5%EB%93%9C%EB%A5%B4_%EA%B8%B0%ED%98%B8' target='_blank' class='url'>https://librewiki.net/wiki/%EB%A5%B4%EC%9E%A5%EB%93%9C%EB%A5%B4_%EA%B8%B0%ED%98%B8</a></li><li><a href='https://en.wikipedia.org/wiki/Euclidean_algorithm' target='_blank' class='url'>https://en.wikipedia.org/wiki/Euclidean_algorithm</a></li><li><a href='https://en.wikipedia.org/wiki/Big_O_notation' target='_blank' class='url'>https://en.wikipedia.org/wiki/Big_O_notation</a></li><li><a href='https://en.wikipedia.org/wiki/Addition-chain_exponentiation' target='_blank' class='url'>https://en.wikipedia.org/wiki/Addition-chain_exponentiation</a></li><li><a href='https://en.wikipedia.org/wiki/Jacobi_symbol' target='_blank' class='url'>https://en.wikipedia.org/wiki/Jacobi_symbol</a></li><li><a href='https://ko.wikipedia.org/wiki/%EC%98%A4%EC%9D%BC%EB%9F%AC_%ED%94%BC_%ED%95%A8%EC%88%98' target='_blank' class='url'>https://ko.wikipedia.org/wiki/%EC%98%A4%EC%9D%BC%EB%9F%AC_%ED%94%BC_%ED%95%A8%EC%88%98</a></li></ul></div>
+</body>
+</html>
