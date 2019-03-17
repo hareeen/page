@@ -1,6 +1,6 @@
 :root {
-    --cl-prim: rgba(253, 219, 38, 1);
-    --cl-dimmed: rgba(253, 219, 38, 0.5);
+    --cl-prim: rgba(255, 233, 99, 1);
+    --cl-dimmed: rgba(255, 233, 99, 0.5);
 }
 
 ::-webkit-scrollbar {
