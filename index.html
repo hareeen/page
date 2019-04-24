@@ -1,540 +1,297 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>himyu</title>
-    <link rel="shortcut icon" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>himyu</title>
+  <link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- Initialize firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+  <!-- Initialize firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
 
-    <!-- Import Semantic UI -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
-    <script src="semantic/dist/semantic.min.js"></script>
+  <!-- Import Semantic UI -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+  <script src="semantic/dist/semantic.min.js"></script>
 
-    <!-- Import custom files -->
-    <script src="/core.js"></script>
-    <script src="/hashes.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <link rel="stylesheet" href="/style.css" crossorigin="anonymous">
+  <!-- Import custom files -->
+  <script src="/core.js"></script>
+  <script src="/hashes.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="/style.css" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <div class="ui sidebar vertical menu right">
+  <!-- Navigation -->
+
+  <div class="cs-nav" style="display:none;">
+    <div class="ui container">
+      <div class="ui borderless secondary pointing menu cs-menu">
         <div class="header item">
+          <img class="ui image" src="images/Logo7_87p.png">
+        </div>
+        <div class="right menu cs-menu" id="menu_social">
+          <a class="item" id="menu_social">
             Social
-        </div>
-        <a class="item">
-            Twitter
-            <div class="ui teal label">@_himyu</div>
-        </a>
-        <a class="item">
-            Discord
-            <div class="ui teal label">히뮤#9755</div>
-        </a>
-        <a class="item">
-            BOJ
-            <div class="ui teal label">himyu</div>
-        </a>
-        <a class="item">
-            Codeforces
-            <div class="ui teal label">himyu</div>
-        </a>
-        <a class="item">
-            Twitch
-            <div class="ui teal label">himyu_</div>
-        </a>
-        <a class="item">
-            한도리
-            <div class="ui teal label">1508046</div>
-        </a>
-        <a class="item">
-            Arcaea
-            <div class="ui teal label">408 280 161</div>
-        </a>
-    </div>
-    <div class="pusher">
-        <!-- Navigation -->
-
-        <div class="cs-nav cs-bg-vivid">
-            <div class="ui container">
-                <div class="ui borderless secondary pointing menu cs-menu">
-                    <div class="header item">
-                        <img class="ui image" src="images/Logo7_87p.png">
-                    </div>
-                    <a class="item active" id="menu_about">
-                        About
-                    </a>
-                    <a class="item" id="menu_ask">
-                        Ask
-                    </a>
-                    <div class="right menu cs-menu" id="menu_social">
-                        <a class="item" id="menu_social">
-                            Social
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About -->
-
-        <div class="ui container" id="content_about" v-show="seen">
-            <div class="cs-section">
-                <div class="cs-bar cs-bg-vivid" data-inverted="" data-tooltip="#fedb00" data-position="top left"></div>
-                <h1 class="ui header">
-                    안녕하세요!
-                </h1>
-                <p>
-                    프로그래밍, 디자인, 영상 배우고 있는 늅늅이 <b>히뮤</b>라고 합니다.
-                    <br>
-                    Hello! <b>himyu</b> is a student who is studying programming, graphic design and motion graphics.
-                </p>
-                <div class="ui divider"></div>
-            </div>
-            <div class="cs-section">
-                <h2 class="ui header">
-                    프로그래밍
-                </h2>
-                <h3 class="ui header">Language Capabilties</h3>
-                <p>아직은 한참 멀었지만, 언젠가는 Highly Skilled가 될 수 있으리라 믿어요!</p>
-                <table class="ui table cs-capabilities">
-                    <tbody>
-                        <tr>
-                            <td>
-                                C / C++
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui blue label">Skilled</a>
-                                <a class="ui teal label">Problem Solving</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Python 3.x
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui blue label">Skilled</a>
-                                <a class="ui teal label">Problem Solving</a>
-                                <a class="ui yellow label">Web Dev.</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Kotlin
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui olive label">Semi-Skilled</a>
-                                <a class="ui teal label">Problem Solving</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                HTML
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui olive label">Semi-Skilled</a>
-                                <a class="ui yellow label">Web Dev.</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                ECMAScript
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui olive label">Semi-Skilled</a>
-                                <a class="ui yellow label">Web Dev.</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                C#
-                            </td>
-                            <td class="right aligned">
-                                <a class="ui grey label">Unskilled</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 class="ui header">Projects</h3>
-                <p class="cs-force-indent">히뮤가 참여한 프로젝트들이에요!</p>
-                <div class="ui stackable three cards cs-stackable-cards">
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/himyu.github.io
-                            </div>
-                            <div class="meta">
-                                No Collaborator
-                            </div>
-                            <div class="description">
-                                당신이 지금 보고 있는 이 페이지, 오픈소스로 되어 있어요!
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/himyu.github.io" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/tw-request
-                            </div>
-                            <div class="meta">
-                                No Collaborator
-                            </div>
-                            <div class="description">
-                                The request box only for twitter users
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/tw-request" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/yellowLighten
-                            </div>
-                            <div class="meta">
-                                No Collaborator
-                            </div>
-                            <div class="description">
-                                아직 개발 중인 디스코드용 봇이에요!!
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/yellowLighten" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/Elf
-                            </div>
-                            <div class="meta">
-                                2 Collaborators
-                            </div>
-                            <div class="description">
-                                The Closed SNS for School
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/Elf" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/picovalue
-                            </div>
-                            <div class="meta">
-                                No Collaborator
-                            </div>
-                            <div class="description">
-                                Article recommendation service (Low accuracy)
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/picovalue" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                himyu/Problem-Solving
-                            </div>
-                            <div class="meta">
-                                No Collaborator
-                            </div>
-                            <div class="description">
-                                AC당 커밋하는 PS용 저장소예요.
-                            </div>
-                        </div>
-                        <a href="https://github.com/himyu/Problem-Solving" class="ui bottom attached button">
-                            <i class="github icon"></i>
-                            GitHub Repository
-                        </a>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-            </div>
-            <div class="cs-section">
-                <h2 class="ui header">
-                    그래픽 디자인 / 모션그래픽
-                </h2>
-                <p>대부분이 그렇듯, 저 역시 디자인 작업에는 Adobe Creative Cloud에 소속된 프로그램 (Photoshop, Illustrator, After Effects...) 을 사용해요. 근데, 이 분야는 정말로 뉴비에요...</p>
-                <h3 class="ui header">Works</h3>
-                <p>작고 미숙하지만 열심히 만든 작업물들이에요!</p>
-                <div class="ui stackable three cards cs-stackable-cards">
-                    <div class="ui fluid card">
-                        <div class="image">
-                            <img src="images/work1.jpg">
-                        </div>
-                        <div class="content">
-                            <a class="header">
-                                himyu's logo
-                            </a>
-                            <div class="meta">
-                                Logo Design
-                            </div>
-                            <p class="description">
-                                저의 로고입니다!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="image">
-                            <img src="images/work2.jpg">
-                        </div>
-                        <div class="content">
-                            <a class="header">
-                                Logo of 'Elf'
-                            </a>
-                            <div class="meta">
-                                Logo Design
-                            </div>
-                            <p class="description">
-                                위의 himyu/Elf 서비스의 로고입니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="image">
-                            <img src="images/work3.jpg">
-                        </div>
-                        <div class="content">
-                            <a class="header">
-                                PLEASE WAIT
-                            </a>
-                            <div class="meta">
-                                Graphic Design
-                            </div>
-                            <p class="description">
-                                제 개인 유튜브 방송에서 사용할 소스를 디자인하였습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="image cs-blur">
-                            <img src="images/work4.jpg">
-                        </div>
-                        <div class="content">
-                            <a class="header">
-                                'Elf' Introduction
-                            </a>
-                            <div class="meta">
-                                Motion Graphics
-                            </div>
-                            <p class="description">
-                                위의 himyu/Elf 서비스의 소개 영상입니다.
-                            </p>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=4DmzKlhKqRk" class="ui bottom attached button">
-                            <i class="youtube icon"></i>
-                            Youtube Video
-                        </a>
-                    </div>
-                    <div class="ui fluid card">
-                        <div class="image cs-blur">
-                            <img src="images/work5.png">
-                        </div>
-                        <div class="content">
-                            <a class="header">
-                                Eve - お気に召すまま Kinetic Typo.
-                            </a>
-                            <div class="meta">
-                                Motion Graphics
-                            </div>
-                            <p class="description">
-                                Eve - お気に召すまま (마음에 드시는 대로)라는 곡으로 키네틱 타이포그래피를 제작하였습니다.
-                            </p>
-                        </div>
-                        <a href="https://www.youtube.com/watch?v=nY8FREuhxnQ" class="ui bottom attached button">
-                            <i class="youtube icon"></i>
-                            Youtube Video
-                        </a>
-                    </div>
-                </div>
-                <div class="ui divider"></div>
-            </div>
-        </div>
-
-        <!-- Ask -->
-
-        <div class="ui container" id="content_ask" v-show="seen">
-            <div class="cs-section">
-                <div class="cs-bar cs-bg-vivid"></div>
-                <h1 class="ui header">
-                    Ask
-                </h1>
-                <p>
-                    질문을 남길 시, 질문자의 <b>외부 IP</b>가 SHA-512로 <b>해시되어</b> DB에 저장됩니다.
-                    <br>
-                    또한, 유사시 히뮤는 특정 IP의 질문을 제한할 수 있습니다.
-                </p>
-                <div class="ui divider"></div>
-            </div>
-            <div class="cs-section">
-                <div class="ui form cs-form" id="question_form">
-                    <div class="ui error message">
-                        <div class="header">질문 제출 실패</div>
-                        <p>질문 내용은 공백이거나, 140자를 넘길 수 없습니다.</p>
-                    </div>
-                    <div class="ui success message">
-                        <div class="header">질문 완료</div>
-                        <p>질문 제출이 성공적으로 완료되었어요!</p>
-                    </div>
-                    <div class="field">
-                        <textarea v-model="question" placeholder="히뮤에게 질문을 남기세요!"></textarea>
-                    </div>
-
-                    <div class="ui fluid submit button" @click="submit_question">
-                        질문 제출
-                    </div>
-                </div>
-            </div>
-            <div class="cs-section">
-                <div class="ui stackable cards cs-stackable-cards" v-for="card_data in cards">
-                    <div class="ui fluid card">
-                        <div class="content">
-                            <div class="header">
-                                {{ card_data.question }}
-                            </div>
-                            <div class="meta">
-                                {{ card_data.timestamp }}
-                            </div>
-                            <div class="description">
-                                {{ card_data.answer }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-
-        <footer class="cs-bg-black cs-footer">
-            <div class="ui center aligned container">
-                <img class="ui image" src="images/Logo7_inv.png">
-                <p>© 2019 himyu. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-</body>
-<!--
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light theme-blue">
-    <a class="navbar-brand" href="#">
-      <img src="/Logo6_Grd.png" width="30" height="33" style="padding-bottom:3px;">
-    </a>
-    <button class="navbar-toggler py-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" width="29" height="29">
-      <span class="fas fa-bars" style="color:white"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active" id="sidebar_about">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item" id="sidebar_ask">
-          <a class="nav-link" href="#">Ask</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <button class="btn my-2 my-sm-0 btn-block" type="button" id="nav_ctheme">Change Theme</button>
-      </form>
-    </div>
-  </nav>
-  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true" style="margin:auto">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">연락처</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <dl class="row">
-            <dt class="col-sm-6">Discord</dt>
-            <dd class="col-sm-6">히뮤#9755</dd>
-            <dt class="col-sm-6">BOJ</dt>
-            <dd class="col-sm-6">himyu</dd>
-            <dt class="col-sm-6">Codeforces</dt>
-            <dd class="col-sm-6">himyu</dd>
-            <dt class="col-sm-6">한도리</dt>
-            <dd class="col-sm-6">1508046</dd>
-            <dt class="col-sm-6">Twitch</dt>
-            <dd class="col-sm-6">himyu_</dd>
-            <dt class="col-sm-6">Arcaea</dt>
-            <dd class="col-sm-6">408 280 161</dd>
-          </dl>
+          </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row h-100">
-      <div class="col" style="height: 0"></div>
-      <div id="content_about" class="aligner my-3 mx-3">
-        <div class="w-100 aligner-item" v-show="seen">
-          <h5 class="fw-600 mb-3">프로필</h5>
-          <p class="fw-300 mb-5">
-            200X년 6월 30일 태어났어요.<br>
-            프로그래밍, 디자인, 영상 공부하고 있어요.<br>
-            <a href="https://twitter.com/_himyu">Twitter</a> ･ <a href="mailto:himyuuuu1@gmail.com">Email</a> ･ <a href="https://github.com/himyu">Github</a>
-            ･ <a href="https://www.youtube.com/channel/UChCzyDZJbObQbQiTGN9IsiQ?view_as=subscriber">Youtube</a><br>
-            <a data-toggle="modal" href="#contactModal">더 많은 연락처</a>
-          </p>
-          <h5 class="fw-600 mb-3">그 외 이것저것</h5>
-          <p class="fw-300 mb-5">
-            주로 python3, Kotlin, C++ 정도를 쓰고 웹프로그래밍도 해요.<br>
-            모바일 리듬게임 (뱅드림, Cytus2, VOEZ, Arcaea) 즐겨 해요.<br>
-            포켓몬, JPOP 좋아해요. (토게키스 최애!)<br>
-            물렁물렁하고 처음엔 내성적이니 많이 다가와주세요.
-          </p>
-          <h5 class="fw-600 mb-3">하고 싶은 말</h5>
-          <p class="fw-300 mb-0">
-            Java 대신 Kotlin을,<br>
-            python2 대신 3을 써 주세요.. 제발..
-          </p>
+
+  <!-- About -->
+  <div class="cs-bg-black">
+    <div class="ui container">
+      <div class="cs-section first">
+        <div class="cs-bar cs-bg-white"></div>
+        <h1 class="ui header">
+          안녕하세요!
+        </h1>
+        <p>
+          프로그래밍, 디자인, 영상 배우고 있는 <b>히뮤</b>라고 합니다.
+          <br>
+          Hello! <b>himyu</b> is a student who is studying programming, graphic design and motion graphics.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui container">
+    <div class="cs-section second">
+      <h3 class="ui header">Recent Repositories</h3>
+      <div class="ui stackable three cards cs-stackable-cards">
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/himyu.github.io
+            </div>
+            <div class="meta">
+              No Collaborator
+            </div>
+            <div class="description">
+              당신이 지금 보고 있는 이 페이지, 오픈소스로 되어 있어요!
+            </div>
+          </div>
+          <a href="https://github.com/himyu/himyu.github.io" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/himyu-playground
+            </div>
+            <div class="meta">
+              No Collaborator
+            </div>
+            <div class="description">
+              expressJS 기반 새 페이지에요.
+            </div>
+          </div>
+          <a href="https://github.com/himyu/himyu-playground" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/tw-request
+            </div>
+            <div class="meta">
+              No Collaborator
+            </div>
+            <div class="description">
+              The request box only for twitter users
+            </div>
+          </div>
+          <a href="https://github.com/himyu/tw-request" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/yellowLighten
+            </div>
+            <div class="meta">
+              No Collaborator
+            </div>
+            <div class="description">
+              아직 개발 중인 디스코드용 봇이에요!!
+            </div>
+          </div>
+          <a href="https://github.com/himyu/yellowLighten" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/Elf
+            </div>
+            <div class="meta">
+              2 Collaborators
+            </div>
+            <div class="description">
+              The Closed SNS for School
+            </div>
+          </div>
+          <a href="https://github.com/himyu/Elf" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">
+              himyu/Problem-Solving
+            </div>
+            <div class="meta">
+              No Collaborator
+            </div>
+            <div class="description">
+              AC당 커밋하는 PS용 저장소예요.
+            </div>
+          </div>
+          <a href="https://github.com/himyu/Problem-Solving" class="ui bottom attached button">
+            <i class="github icon"></i>
+            GitHub Repository
+          </a>
         </div>
       </div>
-      <div id="content_ask" class="aligner my-3 mx-3">
-        <div class="w-100 aligner-item aligner-item--top" v-show="seen" style="overflow: auto;">
-          <h4 class="fw-600 mb-3">Ask</h3>
-            <p class="fw-300 mb-3">
-              질문을 남길 시, 질문자의 IP가 암호화되어, 비공개적으로 영구히 기록돼요.<br>
-              만약 밝히지 않은 제 신상정보(이름, 전화번호 등)를 밝히면 질문자의 IP를 차단할 거에요.
+
+    </div>
+    <div class="cs-section third">
+      <h3 class="ui header">Graphic Works</h3>
+      <div class="ui stackable three cards cs-stackable-cards">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/work1.jpg">
+          </div>
+          <div class="content">
+            <a class="header">
+              himyu's logo
+            </a>
+            <div class="meta">
+              Logo Design
+            </div>
+            <p class="description">
+              저의 로고입니다!
             </p>
-            <textarea type="text" id="question" class="form-control custom-input fw-300 mb-3" placeholder="히뮤에게 질문을 남기세요!"></textarea>
-            <button type="button" id="submit" class="btn btn-block custom-button fw-400 mb-3">질문하기</button>
-
-            <div class="card w-100 mt-3" v-for="card_data in cards">
-              <div class="card-body">
-                <h5 class="card-title fw-600">{{ card_data.question }}</h5>
-                <h6 class="card-subtitle fw-300 mb-3 text-muted">{{ card_data.timestamp }}</h6>
-                <p class="card-text fw-300">{{ card_data.answer }}</p>
-              </div>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/work2.jpg">
+          </div>
+          <div class="content">
+            <a class="header">
+              Logo of 'Elf'
+            </a>
+            <div class="meta">
+              Logo Design
             </div>
+            <p class="description">
+              위의 himyu/Elf 서비스의 로고입니다.
+            </p>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="images/work3_thumb.jpg">
+          </div>
+          <div class="content">
+            <a class="header">
+              PLEASE WAIT
+            </a>
+            <div class="meta">
+              Graphic Design
+            </div>
+            <p class="description">
+              제 개인 방송에서 사용할 소스를 디자인하였습니다. (원래는 16:9 비율의 이미지에요)
+            </p>
+          </div>
+        </div>
+        <div class="ui fluid card">
+          <div class="image cs-blur">
+            <img src="images/work4.jpg">
+          </div>
+          <div class="content">
+            <a class="header">
+              'Elf' Introduction
+            </a>
+            <div class="meta">
+              Motion Graphics
+            </div>
+            <p class="description">
+              위의 himyu/Elf 서비스의 소개 영상입니다.
+            </p>
+          </div>
+          <a href="https://www.youtube.com/watch?v=4DmzKlhKqRk" class="ui bottom attached button">
+            <i class="youtube icon"></i>
+            Youtube Video
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="image cs-blur">
+            <img src="images/work5.png">
+          </div>
+          <div class="content">
+            <a class="header">
+              Eve - お気に召すまま Kinetic Typo.
+            </a>
+            <div class="meta">
+              Motion Graphics
+            </div>
+            <p class="description">
+              Eve - お気に召すまま (마음에 드시는 대로) 라는 곡으로 키네틱 타이포그래피를 제작하였습니다.
+            </p>
+          </div>
+          <a href="https://www.youtube.com/watch?v=nY8FREuhxnQ" class="ui bottom attached button">
+            <i class="youtube icon"></i>
+            Youtube Video
+          </a>
+        </div>
+        <div class="ui fluid card">
+          <div class="image cs-blur">
+            <img src="images/work6.png">
+          </div>
+          <div class="content">
+            <a class="header">
+              Zedd, Alessia Cara - Stay Kinetic Typo.
+            </a>
+            <div class="meta">
+              Motion Graphics
+            </div>
+            <p class="description">
+              Zedd, Alessia Cara - Stay 라는 곡으로 키네틱 타이포그래피를 제작하였습니다.
+            </p>
+          </div>
+          <a href="https://www.youtube.com/watch?v=nY8FREuhxnQ" class="ui bottom attached button">
+            <i class="youtube icon"></i>
+            Youtube Video
+          </a>
         </div>
       </div>
-      <div class="col" style="height: 0"></div>
+
     </div>
   </div>
+
+  <!-- Footer -->
+
+  <footer class="cs-bg-black cs-footer">
+    <div class="ui center aligned container">
+      <img class="ui image" src="images/Logo7_inv.png">
+      <p>© 2019 himyu. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
--->
 
 </html>

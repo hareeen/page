@@ -1,103 +1,98 @@
 :root {
-    --cl-prim: rgba(255, 233, 99, 1);
-    --cl-dimmed: rgba(255, 233, 99, 0.5);
+  --cl-prim: rgba(255, 233, 99, 1);
+  --cl-dimmed: rgba(255, 233, 99, 0.5);
+  --cl-black: rgba(33, 35, 40, 1);
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 ::selection {
-    background-color: var(--cl-dimmed) !important;
+  background-color: var(--cl-dimmed) !important;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    background-color: white;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 }
 
 /* Custom Styles */
-
 .cs-nav {
-    padding-top: 8px;
-    padding-bottom: 15px;
+  padding-top: 8px;
+  padding-bottom: 15px;
 }
 
-
-.cs-menu > .header > img.ui.image {
-    width: 1rem;
-    height: 1rem;
+.cs-menu>.header>img.ui.image {
+  width: 1rem;
+  height: 1rem;
 }
 
-.cs-capabilities > tbody > tr > td > div {
-    display: inline-block;
-    float: right
+.cs-capabilities>tbody>tr>td>div {
+  display: inline-block;
+  float: right
 }
 
 .cs-bar {
-    height: .5em;
-    max-width: 4rem;
+  height: .5em;
+  max-width: 5.4rem;
+}
+
+.cs-bg-white {
+  background-color: white
 }
 
 .cs-bg-black {
-    background-color: rgba(0, 0, 0, .87)
+  background-color: var(--cl-black);
 }
 
 .cs-bg-vivid {
-    background-color: var(--cl-prim);
-}
-
-.cs-bg-dimmed {
-    background-image: linear-gradient(-60deg, var(--cl-pink-dimmed), var(--cl-coral-dimmed));
+  background-color: var(--cl-prim);
 }
 
 .cs-section {
-    padding-top: 3rem
+  padding-bottom: 5rem
 }
 
-.cs-section:nth-of-type(1) {
-    padding-top: 5rem
+.cs-section.first {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
-.cs-section:nth-of-type(3) > .cards > .card > .image.cs-blur > img {
-    filter: blur(.5em);
+.cs-section.first>* {
+  color: white;
 }
 
-.cs-section:nth-of-type(3) > .cards > .card > .image.cs-blur {
-    overflow: hidden;
+.cs-section.second {
+  padding-top: 5rem;
 }
 
-.cs-section:nth-last-of-type(1) {
-    padding-bottom: 3rem
+.cs-section>.ui.cards>.card>a.button {
+  background-color: var(--cl-black);
+  color: white;
 }
 
-#content_ask {
-    min-height: 100vh;
+.cs-section>.cards>.card>.image.cs-blur>img {
+  filter: blur(.5em);
 }
 
-.cs-footer > .container > .image {
-    width: 2rem;
-    margin: auto
+.cs-section>.cards>.card>.image.cs-blur {
+  overflow: hidden;
 }
 
-.cs-footer > .container {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+.cs-footer>.container>.image {
+  width: 2rem;
+  margin: auto
 }
 
-.cs-footer > .container > p {
-    color: white;
-    margin-top: 1.25rem;
+.cs-footer>.container {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
-@media only screen and (max-width: 767px) {
-    .cs-stackable-cards.ui.stackable.cards {
-        margin-top: 1em !important;
-    }
-}
-
-.cs-form.ui.form>.ui.message {
-    margin-top: 0 !important;
+.cs-footer>.container>p {
+  color: white;
+  margin-top: 1.25rem;
 }
