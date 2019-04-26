@@ -61,22 +61,9 @@ body {
   padding-bottom: 7.5rem;
 }
 
-#rel_cont {
-  position: relative;
-  overflow-y: hidden;
-  overflow-x: visible;
-}
-
-#primary_logo {
-  height: 21rem;
-  width: 21rem;
-  position: absolute;
-  top: -6.5rem;
-  right: 4.5rem;
-}
-
 .cs-section.first>* {
   color: white;
+  z-index: 1000;
 }
 
 .cs-section.second {
