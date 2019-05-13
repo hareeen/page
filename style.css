@@ -1,7 +1,7 @@
 :root {
-  --cl-prim: #85ffc7;
-  --cl-dimmed: rgba(255, 233, 99, 0.5);
-  --cl-black: #040F03;
+  --cl-prim: #F27670;
+  --cl-dimmed: rgba(242, 118, 112, 0.5);
+  --cl-black: #212128;
 }
 
 ::-webkit-scrollbar {
