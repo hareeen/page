@@ -90,10 +90,18 @@ body {
 
 .cs-footer>.container {
   padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-bottom: 3rem;
 }
 
 .cs-footer>.container>p {
   color: white;
   margin-top: 1.25rem;
+  font-size: .75em;
+  opacity: 0.5;
+}
+
+.cs-line {
+  width: 100%;
+  background-color: var(--cl-prim);
+  height: 5px;
 }
