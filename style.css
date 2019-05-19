@@ -100,6 +100,11 @@ body {
   opacity: 0.5;
 }
 
+.cs-footer>.container>p>a {
+  color: white;
+  border-bottom: 1px dotted white;
+}
+
 .cs-line {
   width: 100%;
   background-color: var(--cl-prim);

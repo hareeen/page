@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900&display=swap');
+
+:root {
+  --cl-prim: #F27670;
+  --cl-dimmed: rgba(242, 118, 112, 0.5);
+  --cl-black: #212128;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background-color: var(--cl-dimmed) !important;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+/* Custom Styles */
+.cs-bg-black {
+  background-color: var(--cl-black);
+}
+
+.cs-bg-vivid {
+  background-color: var(--cl-prim);
+}
+
+.cs-100h {
+  height: 100vh;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
+.sec-first>div>img {
+  width: 7vw;
+  margin: auto;
+}
+
+.sec-first>div>h1 {
+  font-weight: 900 !important;
+  color: var(--cl-prim) !important;
+}
+
+.sec-first>div {
+  text-align: center;
+}
+
+.sec-first>p {
+  position: absolute;
+  bottom: 2rem;
+  color: white;
+  font-size: .75em;
+  opacity: 0.5;
+}
+
+.sec-first>p>a {
+  color: white;
+  border-bottom: 1px dotted white;
+}

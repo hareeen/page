@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>himyu</title>
+  <link rel="shortcut icon" href="images/fabicon.png">
+
+  <!-- Import Semantic UI -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.css">
+  <script src="../semantic/dist/semantic.min.js"></script>
+
+  <!-- Import custom files -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="style.css" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="cs-bg-black cs-100h Aligner sec-first">
+    <div class="Aligner-item">
+      <img src="../images/Logo7_prim.png" class="ui image">
+      <h1 class="ui header">Presentations</h1>
+    </div>
+    <p style="position: absolute;bottom:2rem;color:white;font-si">© 2019 <a href="https://github.com/himyu">himyu</a>. All rights reserved.</p>
+  </div>
+  <div class="cs-100h sec-second Aligner">
+    <div class="ui container Aligner-item">
+      <div class="ui form">
+        <div class="equal width fields">
+          <div class="field">
+            <label>Date</label>
+            <input type="date" id="date">
+          </div>
+          <div class="field">
+            <label>Hex Code</label>
+            <input type="password" maxlength="2" placeholder="Code" id="code">
+          </div>
+        </div>
+        <button class="ui vertical animated button fluid basic">
+          <div class="visible content">Go!</div>
+          <div class="hidden content">
+            <i class="paper plane icon"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/x-ecmascript">
+  $('button').click(() => {
+    $('#code').val($('#code').val().toUpperCase());
+    if($('#date').val()!=="" && $('#code').val().match("[0-9A-F]*").length>0 && $('#code').val().match("[0-9A-F]*")[0]===$('#code').val()) {
+      window.location.replace('../p/'+$('#date').val().split("-").join('')+'_'+$('#code').val());
+    }
+  });
+</script>
+</html>
