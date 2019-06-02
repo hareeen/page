@@ -107,6 +107,7 @@ body {
 
 .cs-line {
   width: 100%;
+  margin-top: 1.5rem;
   background-color: var(--cl-prim);
-  height: 5px;
+  height: 2.5px;
 }
