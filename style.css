@@ -19,7 +19,8 @@
   font-family: "Montserrat", "Noto Sans KR", sans-serif !important;
   letter-spacing: -0.05ch;
   box-sizing: border-box;
-  word-break: break-all;
+  word-break: break-all !important;
+  word-wrap: break-word !important;
 }
 
 html,
