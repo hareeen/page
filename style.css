@@ -260,6 +260,7 @@ html {
 
 #works .works-item img {
   width: 25vw;
+  max-width: 320px;
   height: 100%;
   box-shadow: 0 0 16px 4px rgba(33, 33, 40, 0.125);
 }
