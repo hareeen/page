@@ -96,6 +96,7 @@ html {
 .hiu.section.first .page-title {
   width: 100%;
   margin-bottom: calc(1.1em + 32px);
+  margin-left: -0.67rem
 }
 
 .hiu.section.first .title {
