@@ -90,7 +90,7 @@ html {
 
 .hiu.section.first {
   padding: 0 64px;
-  background-color: var(--cl-black);
+  background-image: linear-gradient(-120deg, #292226, var(--cl-black));;
 }
 
 .hiu.section.first .page-title {
