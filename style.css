@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap");
 
 :root {
-  --cl-prim: #f27670;
-  --cl-dimmed: rgba(242, 118, 112, 0.3);
+  --cl-prim: #59a5fa;
+  --cl-dimmed: rgba(89, 165, 250, 0.3);
   --cl-black: #212128;
 }
 
@@ -90,7 +90,7 @@ html {
 
 .hiu.section.first {
   padding: 0 64px;
-  background-image: linear-gradient(-120deg, #292226, var(--cl-black));;
+  background-color: var(--cl-black);
 }
 
 .hiu.section.first .page-title {
