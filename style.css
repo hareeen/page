@@ -13,7 +13,7 @@
 
 * {
   font-family: "Montserrat", "Noto Sans KR", sans-serif !important;
-  letter-spacing: -0.05ch;
+  letter-spacing: -0.075ch;
   box-sizing: border-box;
   word-break: break-all !important;
   word-wrap: break-word !important;
@@ -103,9 +103,9 @@ html {
   display: inline-block;
   font-weight: 100;
   color: var(--cl-prim);
-  font-size: 9rem;
+  font-size: 12rem;
   line-height: 1;
-  margin-left: -0.1em;
+  margin-left: -0.12em;
   margin-bottom: 0.07em;
   margin-top: 0;
 }
@@ -114,7 +114,7 @@ html {
   font-weight: 500;
   color: white;
   font-size: 1.5em;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
 }
@@ -133,8 +133,8 @@ html {
 
 @media screen and (max-width: 720px) {
   .hiu.section.first .title {
-    font-size: 4.5rem;
-    margin-left: -0.08em;
+    font-size: 6rem;
+    margin-left: -0.09em;
   }
   .hiu.section.first .subtitle {
     font-size: 1.2em;
@@ -199,7 +199,7 @@ html {
   font-weight: 400;
   font-size: 1.2rem;
   max-width: 800px;
-  line-height: 1.45;
+  line-height: 2;
   text-align: justify;
   text-justify: inter-word;
 }
