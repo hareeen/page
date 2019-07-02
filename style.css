@@ -215,6 +215,7 @@ html {
 
 .hiu.section.second p b {
   font-weight: 600;
+  color: inherit;
 }
 
 .hiu.section.second p a {
@@ -226,6 +227,7 @@ html {
 .hiu.section.second p mark {
   background-color: transparent;
   font-size: 1.3rem;
+  color: inherit;
 }
 
 @media screen and (max-width: 720px) {
