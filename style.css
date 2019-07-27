@@ -19,6 +19,7 @@ body {
   background-image: url("images/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg");
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 .title-sec .image-cover {
   position: absolute;
