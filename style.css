@@ -108,6 +108,7 @@ body {
 
 .section.s .content, .section.t .content, .section.fo .content, .section.fi .content {
   max-width: 720px;
+  text-align: justify;
   text-justify: inter-word;
   line-height: 2;
   /*h2 {
