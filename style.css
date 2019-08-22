@@ -5,7 +5,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Raleway", "Noto Sans KR", sans-serif;
-  background-color: #f1f1f1;
+  background-color: #f7f7f7;
   position: relative;
   margin: 0; }
 
@@ -17,7 +17,6 @@ body {
   display: block; }
 
 .title-sec {
-  background-image: url("images/jr-korpa-GsWllROMURg-unsplash.jpg");
   background-position: center;
   background-size: cover;
   overflow-y: hidden;
@@ -36,11 +35,12 @@ body {
   .title-sec .title-cont {
     text-align: center; }
     .title-sec .title-cont img {
-      width: 6rem; }
+      width: 6rem;
+      opacity: 0.87; }
     .title-sec .title-cont h2 {
       margin-top: 1.3rem;
       font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.93);
       font-weight: 700;
       letter-spacing: -0.05ch; }
     @media screen and (max-width: 720px) {
@@ -57,8 +57,8 @@ body {
     .title-sec .social-cont h2 {
       font-size: 1.2rem; }
       .title-sec .social-cont h2 a {
-        margin-right: 0.7rem;
-        color: rgba(255, 255, 255, 0.8) !important; }
+        margin-right: 1rem;
+        color: rgba(255, 255, 255, 0.93) !important; }
       .title-sec .social-cont h2 a:nth-of-type(3) {
         margin-right: 0; }
     @media screen and (max-width: 720px) {
@@ -94,5 +94,52 @@ body {
         font-size: 1.5rem; }
       .section.f .content p {
         font-size: 0.6rem; } }
+
+.section.s, .section.fo {
+  background-color: rgba(35, 39, 56, 0.8);
+  padding: 5vw;
+  color: rgba(255, 255, 255, 0.93); }
+
+.section.t, .section.fi {
+  padding: 5vw;
+  color: rgba(0, 0, 0, 0.87); }
+
+.section.fi p {
+  margin: 0 !important; }
+
+.section.s .content, .section.t .content, .section.fo .content, .section.fi .content {
+  max-width: 720px;
+  text-justify: inter-word;
+  line-height: 2;
+  /*h2 {
+    margin-top: 0;
+    margin-bottom: 3vw;
+    font-weight: 600;
+  }*/ }
+  .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
+    letter-spacing: -0.05ch;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 2em;
+    margin-bottom: 2em; }
+    .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
+      color: inherit;
+      background-color: transparent;
+      font-size: 1.15rem;
+      margin-left: 0.5rem; }
+    .section.s .content p a, .section.t .content p a, .section.fo .content p a, .section.fi .content p a {
+      color: inherit;
+      text-decoration-color: inherit; }
+  @media screen and (max-width: 720px) {
+    .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
+      font-size: 0.6rem; }
+      .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
+        font-size: 0.69rem; } }
+
+.mb-0 {
+  margin-bottom: 0 !important; }
+
+.mt-0 {
+  margin-top: 0 !important; }
 
 /*# sourceMappingURL=style.css.map */
