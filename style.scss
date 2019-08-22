@@ -11,7 +11,6 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Raleway", "Noto Sans KR", sans-serif;
-  background-color: #f7f7f7;
   position: relative;
   margin: 0;
 }
@@ -26,9 +25,7 @@ body {
 }
 
 .title-sec {
-  // background-image: url("images/jr-korpa-GsWllROMURg-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
+  background-color: $themeC;
   overflow-y: hidden;
   position: relative;
   min-height: 70vh;
@@ -39,7 +36,7 @@ body {
     left: 0;
     width: 100%;
     height: 70vh;
-    background-color: $themeC;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,6 +110,7 @@ body {
   justify-content: center;
   padding: 2rem;
   color: $black;
+  background-color: #f7f7f7;
 
   .content {
     text-align: center;

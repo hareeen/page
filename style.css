@@ -5,7 +5,6 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Raleway", "Noto Sans KR", sans-serif;
-  background-color: #f7f7f7;
   position: relative;
   margin: 0; }
 
@@ -17,8 +16,7 @@ body {
   display: block; }
 
 .title-sec {
-  background-position: center;
-  background-size: cover;
+  background-color: rgba(35, 39, 56, 0.8);
   overflow-y: hidden;
   position: relative;
   min-height: 70vh; }
@@ -28,7 +26,6 @@ body {
     left: 0;
     width: 100%;
     height: 70vh;
-    background-color: rgba(35, 39, 56, 0.8);
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -75,7 +72,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f7f7f7; }
   .section.f .content {
     text-align: center; }
     .section.f .content h1 {
