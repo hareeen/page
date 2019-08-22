@@ -99,6 +99,7 @@ body {
   color: rgba(255, 255, 255, 0.93); }
 
 .section.t, .section.fi {
+  background-color: #f7f7f7;
   padding: 5vw;
   color: rgba(0, 0, 0, 0.87); }
 
