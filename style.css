@@ -56,7 +56,7 @@ body {
       .title-sec .social-cont h2 a {
         margin-right: 1rem;
         color: rgba(255, 255, 255, 0.93) !important; }
-      .title-sec .social-cont h2 a:nth-of-type(3) {
+      .title-sec .social-cont h2 a:nth-of-type(4) {
         margin-right: 0; }
     @media screen and (max-width: 720px) {
       .title-sec .social-cont {
@@ -103,8 +103,13 @@ body {
   padding: 5vw;
   color: rgba(0, 0, 0, 0.87); }
 
-.section.fi p {
-  margin: 0 !important; }
+.section.fi {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+  .section.fi p {
+    margin: 0 !important;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important; }
 
 .section.s .content, .section.t .content, .section.fo .content, .section.fi .content {
   max-width: 720px;

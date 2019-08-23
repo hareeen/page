@@ -84,7 +84,7 @@ body {
         color: $white !important;
       }
 
-      a:nth-of-type(3) {
+      a:nth-of-type(4) {
         margin-right: 0;
       }
     }
@@ -155,8 +155,12 @@ body {
 }
 
 .section.fi {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   p {
     margin: 0 !important;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
   }
 }
 
