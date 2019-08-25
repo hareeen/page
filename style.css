@@ -33,7 +33,8 @@ body {
     text-align: center; }
     .title-sec .title-cont img {
       width: 6rem;
-      opacity: 0.87; }
+      opacity: 0.87;
+      filter: invert(100%) sepia(2%) saturate(129%) hue-rotate(102deg) brightness(119%) contrast(100%); }
     .title-sec .title-cont h2 {
       margin-top: 1.3rem;
       font-size: 1.3rem;
@@ -93,12 +94,14 @@ body {
       .section.f .content p {
         font-size: 0.66rem; } }
 
-.section.s, .section.fo {
+.section.s,
+.section.fo {
   background-color: #4F535F;
   padding: 5vw;
   color: rgba(255, 255, 255, 0.93); }
 
-.section.t, .section.fi {
+.section.t,
+.section.fi {
   background-color: #f7f7f7;
   padding: 5vw;
   color: rgba(0, 0, 0, 0.87); }
@@ -111,7 +114,10 @@ body {
     padding-top: 2em !important;
     padding-bottom: 2em !important; }
 
-.section.s .content, .section.t .content, .section.fo .content, .section.fi .content {
+.section.s .content,
+.section.t .content,
+.section.fo .content,
+.section.fi .content {
   max-width: 720px;
   text-align: justify;
   text-justify: inter-word;
@@ -121,24 +127,39 @@ body {
     margin-bottom: 3vw;
     font-weight: 600;
   }*/ }
-  .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
+  .section.s .content p,
+  .section.t .content p,
+  .section.fo .content p,
+  .section.fi .content p {
     letter-spacing: -0.05ch;
     font-weight: 400;
     font-size: 1.1rem;
     margin-top: 2em;
     margin-bottom: 2em; }
-    .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
+    .section.s .content p mark,
+    .section.t .content p mark,
+    .section.fo .content p mark,
+    .section.fi .content p mark {
       color: inherit;
       background-color: transparent;
       font-size: 1.25rem;
       margin-left: 0.5rem; }
-    .section.s .content p a, .section.t .content p a, .section.fo .content p a, .section.fi .content p a {
+    .section.s .content p a,
+    .section.t .content p a,
+    .section.fo .content p a,
+    .section.fi .content p a {
       color: inherit;
       text-decoration-color: inherit; }
   @media screen and (max-width: 720px) {
-    .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
+    .section.s .content p,
+    .section.t .content p,
+    .section.fo .content p,
+    .section.fi .content p {
       font-size: 0.66rem; }
-      .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
+      .section.s .content p mark,
+      .section.t .content p mark,
+      .section.fo .content p mark,
+      .section.fi .content p mark {
         font-size: 0.75rem; } }
 
 .mb-0 {
