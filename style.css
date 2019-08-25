@@ -16,7 +16,7 @@ body {
   display: block; }
 
 .title-sec {
-  background-color: rgba(35, 39, 56, 0.8);
+  background-color: #4F535F;
   overflow-y: hidden;
   position: relative;
   min-height: 70vh; }
@@ -85,16 +85,16 @@ body {
       opacity: 0.7;
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 0; }
     @media screen and (max-width: 720px) {
       .section.f .content h1 {
         font-size: 1.5rem; }
       .section.f .content p {
-        font-size: 0.6rem; } }
+        font-size: 0.66rem; } }
 
 .section.s, .section.fo {
-  background-color: rgba(35, 39, 56, 0.8);
+  background-color: #4F535F;
   padding: 5vw;
   color: rgba(255, 255, 255, 0.93); }
 
@@ -124,22 +124,22 @@ body {
   .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
     letter-spacing: -0.05ch;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-top: 2em;
     margin-bottom: 2em; }
     .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
       color: inherit;
       background-color: transparent;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       margin-left: 0.5rem; }
     .section.s .content p a, .section.t .content p a, .section.fo .content p a, .section.fi .content p a {
       color: inherit;
       text-decoration-color: inherit; }
   @media screen and (max-width: 720px) {
     .section.s .content p, .section.t .content p, .section.fo .content p, .section.fi .content p {
-      font-size: 0.6rem; }
+      font-size: 0.66rem; }
       .section.s .content p mark, .section.t .content p mark, .section.fo .content p mark, .section.fi .content p mark {
-        font-size: 0.69rem; } }
+        font-size: 0.75rem; } }
 
 .mb-0 {
   margin-bottom: 0 !important; }

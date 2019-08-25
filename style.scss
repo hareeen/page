@@ -3,7 +3,7 @@
 
 $black: rgba(0, 0, 0, 0.87);
 $white: rgba(255, 255, 255, 0.93);
-$themeC: rgba(35, 39, 56, 0.8);
+$themeC: #4F535F;
 $themeCd: rgba(35, 39, 56, 0.1);
 
 html,
@@ -126,7 +126,7 @@ body {
       opacity: 0.7;
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 0;
     }
 
@@ -136,7 +136,7 @@ body {
       }
 
       p {
-        font-size: 0.6rem;
+        font-size: 0.66rem;
       }
     }
   }
@@ -180,14 +180,14 @@ body {
     p {
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-top: 2em;
       margin-bottom: 2em;
 
       mark {
         color: inherit;
         background-color: transparent;
-        font-size: 1.15rem;
+        font-size: 1.25rem;
         margin-left: 0.5rem;
       }
 
@@ -199,11 +199,11 @@ body {
 
     @media screen and (max-width: 720px) {
       p {
-        font-size: 0.6rem;
+        font-size: 0.66rem;
         mark {
-          font-size: 0.69rem;
+          font-size: 0.75rem;
         }
-      }
+       }
     }
   }
 
