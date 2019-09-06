@@ -16,10 +16,11 @@ body {
   display: block; }
 
 .title-sec {
-  background-color: #4F535F;
+  background-color: #33353b;
   overflow-y: hidden;
   position: relative;
-  min-height: 70vh; }
+  min-height: 70vh;
+  background: repeating-linear-gradient(45deg, #33353b, #33353b 10vw, rgba(51, 53, 59, 0.96) 10vw, rgba(51, 53, 59, 0.96) 20vw); }
   .title-sec .image-cover {
     position: absolute;
     top: 0;
@@ -92,11 +93,13 @@ body {
       .section.f .content h1 {
         font-size: 1.5rem; }
       .section.f .content p {
-        font-size: 0.66rem; } }
+        font-size: 0.792rem; }
+        .section.f .content p > span {
+          display: block; } }
 
 .section.s,
 .section.fo {
-  background-color: #4F535F;
+  background: repeating-linear-gradient(45deg, #33353b, #33353b 10vw, rgba(51, 53, 59, 0.96) 10vw, rgba(51, 53, 59, 0.96) 20vw);
   padding: 5vw;
   color: rgba(255, 255, 255, 0.93); }
 
@@ -136,31 +139,47 @@ body {
     font-size: 1.1rem;
     margin-top: 2em;
     margin-bottom: 2em; }
+    .section.s .content p.mt-0,
+    .section.t .content p.mt-0,
+    .section.fo .content p.mt-0,
+    .section.fi .content p.mt-0 {
+      margin-bottom: -1em; }
+    .section.s .content p.mt-0 > i:first-of-type,
+    .section.t .content p.mt-0 > i:first-of-type,
+    .section.fo .content p.mt-0 > i:first-of-type,
+    .section.fi .content p.mt-0 > i:first-of-type {
+      display: block;
+      font-size: 2.5rem; }
     .section.s .content p mark,
     .section.t .content p mark,
     .section.fo .content p mark,
     .section.fi .content p mark {
       color: inherit;
       background-color: transparent;
-      font-size: 1.25rem;
-      margin-left: 0.5rem; }
+      font-size: 1.5rem; }
     .section.s .content p a,
     .section.t .content p a,
     .section.fo .content p a,
     .section.fi .content p a {
       color: inherit;
-      text-decoration-color: inherit; }
+      text-decoration-color: inherit;
+      word-break: break-all !important; }
   @media screen and (max-width: 720px) {
     .section.s .content p,
     .section.t .content p,
     .section.fo .content p,
     .section.fi .content p {
-      font-size: 0.66rem; }
+      font-size: 0.792rem; }
+      .section.s .content p.mt-0 > i:first-of-type,
+      .section.t .content p.mt-0 > i:first-of-type,
+      .section.fo .content p.mt-0 > i:first-of-type,
+      .section.fi .content p.mt-0 > i:first-of-type {
+        font-size: 1.8rem; }
       .section.s .content p mark,
       .section.t .content p mark,
       .section.fo .content p mark,
       .section.fi .content p mark {
-        font-size: 0.75rem; } }
+        font-size: 1.08rem; } }
 
 .mb-0 {
   margin-bottom: 0 !important; }
