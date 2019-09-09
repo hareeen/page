@@ -34,7 +34,7 @@ body {
     text-align: center; }
     .title-sec .title-cont img {
       width: 6rem;
-      opacity: 0.87;
+      opacity: 0.93;
       filter: invert(100%) sepia(2%) saturate(129%) hue-rotate(102deg) brightness(119%) contrast(100%); }
     .title-sec .title-cont h2 {
       margin-top: 1.3rem;
