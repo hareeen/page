@@ -123,29 +123,29 @@ body {
 
     h1 {
       letter-spacing: 0.5ch;
-      font-size: 2.5rem;
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 700;
       margin-top: 0;
     }
 
     p {
-      opacity: 0.7;
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 0;
+      margin-top: 2em;
     }
 
     @media screen and (max-width: 720px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.08rem;
       }
 
       p {
-        font-size: 0.792rem;
-        &>span {
+        font-size: 0.6rem;
+        /*&>span {
           display:block;
-        }
+        }*/
       }
     }
   }
