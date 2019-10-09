@@ -3,8 +3,8 @@
 
 $black: rgba(0, 0, 0, 0.87);
 $white: rgba(255, 255, 255, 0.93);
-$themeC: rgb(51, 53, 59);
-$themeCd: rgba(51, 53, 59, 0.96);
+$themeC: rgb(79, 72, 75);
+$themeCd: rgba(79, 72, 75, 0.96);
 
 html,
 body {
@@ -29,11 +29,11 @@ body {
   overflow-y: hidden;
   position: relative;
   min-height: 70vh;
-  background: repeating-linear-gradient(45deg,
+  /*background: repeating-linear-gradient(45deg,
       $themeC,
       $themeC 10vw,
       $themeCd 10vw,
-      $themeCd 20vw);
+      $themeCd 20vw);*/
 
   .image-cover {
     position: absolute;
@@ -51,9 +51,9 @@ body {
     text-align: center;
 
     img {
-      width: 6rem;
+      width: 9rem;
       opacity: 0.93;
-      filter: invert(100%) sepia(2%) saturate(129%) hue-rotate(102deg) brightness(119%) contrast(100%);
+      filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%);
     }
 
     h2 {
@@ -153,12 +153,12 @@ body {
 
 .section.s,
 .section.fo {
-  // background-color: $themeC;
-  background: repeating-linear-gradient(45deg,
+  background-color: $themeC;
+  /*background: repeating-linear-gradient(45deg,
       $themeC,
       $themeC 10vw,
       $themeCd 10vw,
-      $themeCd 20vw);
+      $themeCd 20vw);*/
   padding: 5vw;
   color: $white;
 }

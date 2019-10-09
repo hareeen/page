@@ -16,11 +16,15 @@ body {
   display: block; }
 
 .title-sec {
-  background-color: #33353b;
+  background-color: #4f484b;
   overflow-y: hidden;
   position: relative;
   min-height: 70vh;
-  background: repeating-linear-gradient(45deg, #33353b, #33353b 10vw, rgba(51, 53, 59, 0.96) 10vw, rgba(51, 53, 59, 0.96) 20vw); }
+  /*background: repeating-linear-gradient(45deg,
+      $themeC,
+      $themeC 10vw,
+      $themeCd 10vw,
+      $themeCd 20vw);*/ }
   .title-sec .image-cover {
     position: absolute;
     top: 0;
@@ -33,9 +37,9 @@ body {
   .title-sec .title-cont {
     text-align: center; }
     .title-sec .title-cont img {
-      width: 6rem;
+      width: 9rem;
       opacity: 0.93;
-      filter: invert(100%) sepia(2%) saturate(129%) hue-rotate(102deg) brightness(119%) contrast(100%); }
+      filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%); }
     .title-sec .title-cont h2 {
       margin-top: 1.3rem;
       font-size: 1.3rem;
@@ -100,7 +104,12 @@ body {
 
 .section.s,
 .section.fo {
-  background: repeating-linear-gradient(45deg, #33353b, #33353b 10vw, rgba(51, 53, 59, 0.96) 10vw, rgba(51, 53, 59, 0.96) 20vw);
+  background-color: #4f484b;
+  /*background: repeating-linear-gradient(45deg,
+      $themeC,
+      $themeC 10vw,
+      $themeCd 10vw,
+      $themeCd 20vw);*/
   padding: 5vw;
   color: rgba(255, 255, 255, 0.93); }
 
