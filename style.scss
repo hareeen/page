@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700&display=swap');
 
-$black: rgba(0, 0, 0, 0.87);
-$white: rgba(255, 255, 255, 0.93);
-$themeC: rgb(79, 72, 75);
-$themeCd: rgba(79, 72, 75, 0.96);
+$black: rgba(0, 0, 0, 0.93);
+$white: rgba(255, 255, 255, 1);
+$themeC: rgba(0, 0, 0, 0.93);
+// $themeCd: rgba(79, 72, 75, 0.96);
 
 html,
 body {
@@ -53,7 +53,8 @@ body {
     img {
       width: 9rem;
       opacity: 0.93;
-      filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%);
+      filter: invert(100%);
+      // filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%);
     }
 
     h2 {
@@ -116,7 +117,7 @@ body {
   justify-content: center;
   padding: 2rem;
   color: $black;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
 
   .content {
     text-align: center;
@@ -165,7 +166,7 @@ body {
 
 .section.t,
 .section.fi {
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
   padding: 5vw;
   color: $black;
 }
