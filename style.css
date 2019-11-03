@@ -16,7 +16,7 @@ body {
   display: block; }
 
 .title-sec {
-  background-color: rgba(0, 0, 0, 0.93);
+  background-color: #382f4b;
   overflow-y: hidden;
   position: relative;
   min-height: 70vh;
@@ -103,7 +103,7 @@ body {
 
 .section.s,
 .section.fo {
-  background-color: rgba(0, 0, 0, 0.93);
+  background-color: #382f4b;
   /*background: repeating-linear-gradient(45deg,
       $themeC,
       $themeC 10vw,
