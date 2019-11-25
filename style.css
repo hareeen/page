@@ -61,7 +61,10 @@ body {
       font-size: 1.2rem; }
       .title-sec .social-cont h2 a {
         margin-right: 1rem;
-        color: white !important; }
+        color: white !important;
+        transition: all 0.5s ease; }
+      .title-sec .social-cont h2 a:hover {
+        opacity: 0.5; }
       .title-sec .social-cont h2 a:last-of-type {
         margin-right: 0; }
     @media screen and (max-width: 720px) {

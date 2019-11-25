@@ -89,6 +89,11 @@ body {
       a {
         margin-right: 1rem;
         color: $white !important;
+        transition: all 0.5s ease;
+      }
+
+      a:hover {
+        opacity: 0.5;
       }
 
       a:last-of-type {
