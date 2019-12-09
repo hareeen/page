@@ -13,7 +13,8 @@ body {
 
 .section {
   width: 100%;
-  display: block; }
+  display: block;
+  overflow: hidden; }
 
 .title-sec {
   background-color: #382f4b;

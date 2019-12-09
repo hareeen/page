@@ -22,6 +22,7 @@ body {
 .section {
   width: 100%;
   display: block;
+  overflow: hidden;
 }
 
 .title-sec {
@@ -246,7 +247,6 @@ body {
       }
     }
   }
-
 }
 
 .mb-0 {
