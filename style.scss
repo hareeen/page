@@ -52,7 +52,7 @@ body {
     text-align: center;
 
     img {
-      width: 9rem;
+      width: 10.5rem;
       opacity: 0.93;
       filter: invert(100%);
       // filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%);
@@ -68,7 +68,7 @@ body {
 
     @media screen and (max-width: 720px) {
       img {
-        width: 4.8rem;
+        width: 5.6rem;
       }
 
       h2 {
