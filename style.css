@@ -103,10 +103,9 @@ body {
         .section.f .content h1 {
           font-size: 1.2rem; }
         .section.f .content p {
-          font-size: 0.6rem;
-          /*&>span {
-            display:block;
-          }*/ } }
+          font-size: 0.6rem; }
+          .section.f .content p > span {
+            display: block; } }
 
 .section.s,
 .section.fo {
