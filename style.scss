@@ -81,7 +81,7 @@ body {
 
       a {
         color: $themeC;
-        text-decoration-color: inherit;
+        text-decoration-color: $themeC;
       }
     }
   }
