@@ -56,7 +56,7 @@ body {
         font-weight: 700; }
       .section .content p a {
         color: #787dab;
-        text-decoration-color: inherit; }
+        text-decoration-color: #787dab; }
 
 .mb-0 {
   margin-bottom: 0 !important; }
