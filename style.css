@@ -11,7 +11,7 @@ body {
   box-sizing: border-box; }
 
 #wrapper {
-  margin: 6vh 1.1rem; }
+  margin: 6vh 0.9rem; }
 
 .title {
   display: flex;
@@ -32,7 +32,7 @@ body {
     max-width: 720px;
     text-align: justify;
     text-justify: inter-word;
-    line-height: 1.85;
+    line-height: 1.8;
     word-break: break-all !important;
     /*h2 {
       margin-top: 0;
@@ -42,7 +42,7 @@ body {
     .section .content p {
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin: 3vh 0; }
       .section .content p:nth-of-type(1) {
         margin-bottom: 1.5vh; }
@@ -51,7 +51,7 @@ body {
       .section .content p mark {
         color: inherit;
         background-color: transparent;
-        font-size: 1.25rem; }
+        font-size: 1.15rem; }
       .section .content p b {
         font-weight: 700; }
       .section .content p a {
