@@ -3,9 +3,7 @@
 
 $black: rgba(0, 0, 0, 0.93);
 $white: rgba(255, 255, 255, 1);
-$themeC: #3b3440;
-// $themeCd: rgba(79, 72, 75, 0.96);
-
+$themeC: #787dab;
 html,
 body {
   width: 100%;
@@ -19,182 +17,37 @@ body {
   box-sizing: border-box;
 }
 
-.section {
-  width: 100%;
-  display: block;
-  overflow: hidden;
+#wrapper {
+  margin: 6vh 1.1rem;
 }
 
-.title-sec {
-  background-color: $themeC;
-  overflow-y: hidden;
-  position: relative;
-  min-height: 70vh;
-  /*background: repeating-linear-gradient(45deg,
-      $themeC,
-      $themeC 10vw,
-      $themeCd 10vw,
-      $themeCd 20vw);*/
-
-  .image-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .title-cont {
-    text-align: center;
-
-    img {
-      width: 9rem;
-      opacity: 0.93;
-      filter: invert(100%);
-      // filter: invert(88%) sepia(18%) saturate(351%) hue-rotate(350deg) brightness(102%) contrast(107%);
-    }
-
-    h2 {
-      margin-top: 1.3rem;
-      font-size: 1.3rem;
-      color: $white;
-      font-weight: 700;
-      letter-spacing: -0.05ch;
-    }
-
-    @media screen and (max-width: 720px) {
-      img {
-        width: 4.8rem;
-      }
-
-      h2 {
-        margin-top: 0.94rem;
-        font-size: 0.94rem;
-      }
-    }
-  }
-
-  .social-cont {
-    position: absolute;
-    bottom: 1rem;
-    text-align: center;
-    width: 100%;
-
-    h2 {
-      font-size: 1.2rem;
-
-      a {
-        margin-right: 1rem;
-        color: $white !important;
-        transition: all 0.5s ease;
-      }
-
-      a:hover {
-        opacity: 0.5;
-      }
-
-      a:last-of-type {
-        margin-right: 0;
-      }
-    }
-
-    @media screen and (max-width: 720px) {
-      bottom: 0.8rem;
-
-      h2 {
-        font-size: 1rem;
-
-        a {
-          margin-right: 0.57rem;
-        }
-      }
-    }
-  }
-}
-
-.section.f {
-  min-height: 30vh;
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  color: $black;
-  // background-color: #f7f7f7;
+  margin: 9vh 0;
 
   .content {
-    text-align: center;
-    padding: 3rem;
-
-    h1 {
-      letter-spacing: -0.05ch;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    p {
-      letter-spacing: -0.05ch;
-      font-weight: 400;
-      font-size: 1rem;
-      margin-bottom: 0;
-      margin-top: 1rem;
-    }
-
-    @media screen and (max-width: 720px) {
-      padding: 1.8rem;
-
-      h1 {
-        font-size: 1.2rem;
-      }
-
-      p {
-        font-size: 0.6rem;
-        &>span {
-          display:block;
-        }
-      }
+    img {
+      width: 216px;
+      max-width: 30vw;
     }
   }
 }
 
-.section.s,
-.section.fo {
-  background-color: $themeC;
-  padding: calc(3vw + 3vh - 12px);
-  color: $white;
-}
-
-.section.t,
-.section.fi {
-  padding: calc(3vw + 3vh - 12px);
+.section {
+  max-width: 720px;
+  display: block;
+  overflow: hidden;
+  margin: auto;
   color: $black;
-}
-
-.section.fi {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-
-  p {
-    margin: 0 !important;
-    padding-top: 2em !important;
-    padding-bottom: 2em !important;
-  }
-}
-
-.section.s,
-.section.t,
-.section.fo,
-.section.fi {
+  
   .content {
     max-width: 720px;
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.85;
+    word-break: break-all !important;
 
     /*h2 {
       margin-top: 0;
@@ -205,43 +58,30 @@ body {
     p {
       letter-spacing: -0.05ch;
       font-weight: 400;
-      font-size: 1.2rem;
-      margin-top: 2em;
-      margin-bottom: 2em;
+      font-size: 1rem;
+      margin: 3vh 0;
 
-      &.mt-0 {
-        margin-bottom: -1em;
+      &:nth-of-type(1) {
+        margin-bottom: 1.5vh;
       }
 
-      &.mt-0>i:first-of-type {
-        display: block;
-        font-size: 2.5rem;
+      &:nth-of-type(2) {
+        margin-top: 1.5vh;
       }
 
       mark {
         color: inherit;
         background-color: transparent;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+      }
+
+      b {
+        font-weight: 700;
       }
 
       a {
-        color: inherit;
+        color: $themeC;
         text-decoration-color: inherit;
-        word-break: break-all !important;
-      }
-    }
-
-    @media screen and (max-width: 720px) {
-      p {
-        font-size: 0.864rem;
-
-        &.mt-0>i:first-of-type {
-          font-size: 1.8rem;
-        }
-
-        mark {
-          font-size: 1.08rem;
-        }
       }
     }
   }
