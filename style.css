@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700&display=swap");
+* {
+  box-sizing: border-box; }
+
 html,
 body {
   width: 100%;
@@ -7,11 +10,8 @@ body {
   position: relative;
   margin: 0; }
 
-* {
-  box-sizing: border-box; }
-
 #wrapper {
-  margin: 6vh 0.9rem; }
+  margin: 6vh 0.95rem; }
 
 .title {
   display: flex;
@@ -19,29 +19,23 @@ body {
   justify-content: center;
   margin: 9vh 0; }
   .title .content img {
-    width: 216px;
+    width: 230.4px;
     max-width: 30vw; }
 
 .section {
-  max-width: 720px;
+  max-width: 768px;
   display: block;
   overflow: hidden;
   margin: auto;
   color: rgba(0, 0, 0, 0.93); }
   .section .content {
-    max-width: 720px;
+    max-width: 768px;
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.8;
-    word-break: break-all !important;
-    /*h2 {
-      margin-top: 0;
-      margin-bottom: 3vw;
-      font-weight: 600;
-    }*/ }
+    word-break: break-all !important; }
     .section .content p {
       letter-spacing: -0.05ch;
-      font-weight: 400;
       font-size: 0.95rem;
       margin: 3vh 0; }
       .section .content p:nth-of-type(1) {
@@ -52,8 +46,6 @@ body {
         color: inherit;
         background-color: transparent;
         font-size: 1.15rem; }
-      .section .content p b {
-        font-weight: 700; }
       .section .content p a {
         color: #787dab;
         text-decoration-color: #787dab; }
