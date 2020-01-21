@@ -11,7 +11,7 @@ body {
   margin: 0; }
 
 #wrapper {
-  margin: 6vh 0.95rem; }
+  margin: 0 0.95rem; }
 
 .title {
   display: flex;
@@ -38,7 +38,7 @@ body {
       letter-spacing: -0.05ch;
       font-size: 0.95rem;
       margin: 3vh 0; }
-      .section .content p:nth-of-type(1) {
+      .section .content p:nth-of-type(1):not(.section .content p:last-of-type) {
         margin-bottom: 1.5vh; }
       .section .content p:nth-of-type(2) {
         margin-top: 1.5vh; }
