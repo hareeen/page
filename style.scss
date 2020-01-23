@@ -10,6 +10,11 @@ $theme-compl: #db9d9d;
     box-sizing: border-box;
 }
 
+::selection {
+    background-color: $theme-dark;
+    color: white;
+}
+
 html,
 body {
     width: 100%;
