@@ -21,10 +21,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 9vh 0; }
+  margin: 7.5vh 0 7vh 0; }
   .title .content img {
-    width: 230.4px;
-    max-width: 30vw; }
+    width: 153.6px;
+    max-width: 20vw; }
 
 .section {
   max-width: 768px;
