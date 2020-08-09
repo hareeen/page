@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700&display=swap');
 
-$black: rgba(0, 0, 0, 0.93);
+$black: rgba(0, 0, 0, 0.87);
 $white: rgba(255, 255, 255, 1);
 $theme-light: #787dab;
 $theme-dark: #2d2f40;
@@ -8,6 +8,10 @@ $theme-compl: #db9d9d;
 
 * {
     box-sizing: border-box;
+}
+
+:root {
+    font-size: 14px;
 }
 
 ::selection {
@@ -25,7 +29,38 @@ body {
 }
 
 #wrapper {
-    margin: 0 0.95rem;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+    
+    p {
+        letter-spacing: -0.05ch;
+        margin: 3vh 0;
+        font-weight: 400;
+
+        &:nth-of-type(1):not(&:last-of-type) {
+            margin-bottom: 1.5vh;
+        }
+
+        &:nth-of-type(2) {
+            margin-top: 1.5vh;
+        }
+
+        mark {
+            color: inherit;
+            background-color: transparent;
+            font-size: 1.3rem;
+        }
+
+        b {
+            font-weight: 600;
+        }
+
+        a {
+            color: $theme-light;
+            text-decoration-color: $theme-light;
+        }
+    }
+
 }
 
 .title {
@@ -43,43 +78,18 @@ body {
 }
 
 .section {
-    max-width: 768px;
+    max-width: 640px;
     display: block;
     overflow: hidden;
     margin: auto;
     color: $black;
 
     .content {
-        max-width: 768px;
+        max-width: 640px;
         text-align: justify;
         text-justify: inter-word;
         line-height: 1.8;
         word-break: break-all !important;
-
-        p {
-            letter-spacing: -0.05ch;
-            font-size: 0.95rem;
-            margin: 3vh 0;
-
-            &:nth-of-type(1):not(&:last-of-type) {
-                margin-bottom: 1.5vh;
-            }
-
-            &:nth-of-type(2) {
-                margin-top: 1.5vh;
-            }
-
-            mark {
-                color: inherit;
-                background-color: transparent;
-                font-size: 1.15rem;
-            }
-
-            a {
-                color: $theme-light;
-                text-decoration-color: $theme-light;
-            }
-        }
     }
 }
 

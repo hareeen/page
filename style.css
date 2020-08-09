@@ -2,6 +2,9 @@
 * {
   box-sizing: border-box; }
 
+:root {
+  font-size: 14px; }
+
 ::selection {
   background-color: #2d2f40;
   color: white; }
@@ -15,7 +18,25 @@ body {
   margin: 0; }
 
 #wrapper {
-  margin: 0 0.95rem; }
+  margin: 0 1rem;
+  font-size: 1.1rem; }
+  #wrapper p {
+    letter-spacing: -0.05ch;
+    margin: 3vh 0;
+    font-weight: 400; }
+    #wrapper p:nth-of-type(1):not(#wrapper p:last-of-type) {
+      margin-bottom: 1.5vh; }
+    #wrapper p:nth-of-type(2) {
+      margin-top: 1.5vh; }
+    #wrapper p mark {
+      color: inherit;
+      background-color: transparent;
+      font-size: 1.3rem; }
+    #wrapper p b {
+      font-weight: 600; }
+    #wrapper p a {
+      color: #787dab;
+      text-decoration-color: #787dab; }
 
 .title {
   display: flex;
@@ -27,32 +48,17 @@ body {
     max-width: 20vw; }
 
 .section {
-  max-width: 768px;
+  max-width: 640px;
   display: block;
   overflow: hidden;
   margin: auto;
-  color: rgba(0, 0, 0, 0.93); }
+  color: rgba(0, 0, 0, 0.87); }
   .section .content {
-    max-width: 768px;
+    max-width: 640px;
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.8;
     word-break: break-all !important; }
-    .section .content p {
-      letter-spacing: -0.05ch;
-      font-size: 0.95rem;
-      margin: 3vh 0; }
-      .section .content p:nth-of-type(1):not(.section .content p:last-of-type) {
-        margin-bottom: 1.5vh; }
-      .section .content p:nth-of-type(2) {
-        margin-top: 1.5vh; }
-      .section .content p mark {
-        color: inherit;
-        background-color: transparent;
-        font-size: 1.15rem; }
-      .section .content p a {
-        color: #787dab;
-        text-decoration-color: #787dab; }
 
 .mb-0 {
   margin-bottom: 0 !important; }
