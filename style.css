@@ -43,10 +43,8 @@ body {
   color: rgba(0, 0, 0, 0.83);
 }
 .section .content {
-  text-align: justify;
-  text-justify: inter-word;
   line-height: 1.8;
-  word-break: break-all !important;
+  word-break: keep-all;
   width: inherit;
   min-width: inherit;
   max-width: inherit;
