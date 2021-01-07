@@ -8,7 +8,7 @@
 }
 
 ::selection {
-  background-color: #2d2f40;
+  background-color: #352d40;
   color: white;
 }
 
@@ -69,8 +69,8 @@ body {
   font-weight: 600;
 }
 .section .content p a {
-  color: #787dab;
-  text-decoration-color: #787dab;
+  color: #B096D4;
+  text-decoration-color: #B096D4;
 }
 
 .mb-0 {
