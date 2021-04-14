@@ -35,6 +35,7 @@ body {
 .title img {
   width: 192px;
   max-width: 30%;
+  margin-left: min(24px, 3.75%);
 }
 
 .section {
