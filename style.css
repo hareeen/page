@@ -32,6 +32,10 @@ body {
   justify-content: center;
   margin: 7.5vh 0 7vh 0;
 }
+.title img {
+  width: 192px;
+  max-width: 30%;
+}
 
 .section {
   width: 640px;
