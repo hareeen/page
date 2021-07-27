@@ -2,8 +2,8 @@
 
 $black: rgba(0, 0, 0, 0.83);
 $white: rgba(255, 255, 255, 1);
-$theme-light: #787dab;
-$theme-dark: #2d2f40;
+$theme-light: #b593e6;
+$theme-dark: #322940;
 
 * {
     box-sizing: border-box;
@@ -24,6 +24,7 @@ body {
     height: 100%;
     font-family: "proxima-nova", "Noto Sans KR", sans-serif;
     position: relative;
+    background-color: $white;
     margin: 0;
 }
 
