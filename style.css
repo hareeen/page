@@ -1,16 +1,31 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700&display=swap");
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 :root {
-  font-size: min(15px, calc(11px + .3vw));
-}
+  font-size: min(15px, calc(11px + .3vw)); }
 
-::selection {
-  background-color: #2d2f40;
-  color: white;
-}
+body.dark {
+  background-color: #453837;
+  color: rgba(255, 255, 255, 0.83); }
+  body.dark ::selection {
+    background-color: rgba(255, 255, 255, 0.83);
+    color: #453837; }
+  body.dark a {
+    color: #dfe6bb;
+    text-decoration-color: #dfe6bb; }
+  body.dark .title img {
+    filter: invert(1); }
+
+body.light {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.83); }
+  body.light ::selection {
+    background-color: rgba(0, 0, 0, 0.83);
+    color: white; }
+  body.light a {
+    color: #9787d4;
+    text-decoration-color: #9787d4; }
 
 html,
 body {
@@ -18,25 +33,23 @@ body {
   height: 100%;
   font-family: "proxima-nova", "Noto Sans KR", sans-serif;
   position: relative;
-  margin: 0;
-}
+  margin: 0; }
 
 #wrapper {
   margin: 0 2rem;
-  font-size: 1.1rem;
-}
+  font-size: 1.1rem; }
 
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 7.5vh 0 7vh 0;
-}
-.title img {
-  width: 192px;
-  max-width: 30%;
-  margin-left: min(24px, 3.75%);
-}
+  margin: 7.5vh 0 7vh 0; }
+  .title img {
+    width: 192px;
+    max-width: 30%;
+    margin-left: min(24px, 3.75%);
+    opacity: 0.83;
+    cursor: pointer; }
 
 .section {
   width: 640px;
@@ -44,46 +57,32 @@ body {
   max-width: 100%;
   display: block;
   overflow: hidden;
-  margin: 1.5vh auto auto auto;
-  color: rgba(0, 0, 0, 0.83);
-}
-.section .content {
-  line-height: 1.8;
-  word-break: keep-all;
-  width: inherit;
-  min-width: inherit;
-  max-width: inherit;
-}
-.section .content p {
-  letter-spacing: -0.05ch;
-  margin: 3vh 0;
-  font-weight: 400;
-}
-.section .content p:nth-of-type(1) {
-  margin-bottom: 1.5vh;
-}
-.section .content p:nth-of-type(2) {
-  margin-top: 1.5vh;
-}
-.section .content p mark {
-  color: inherit;
-  background-color: transparent;
-  font-size: 1.3rem;
-}
-.section .content p b {
-  font-weight: 600;
-}
-.section .content p a {
-  color: #787dab;
-  text-decoration-color: #787dab;
-}
+  margin: 1.5vh auto auto auto; }
+  .section .content {
+    line-height: 1.8;
+    word-break: keep-all;
+    width: inherit;
+    min-width: inherit;
+    max-width: inherit; }
+    .section .content p {
+      letter-spacing: -0.05ch;
+      margin: 3vh 0;
+      font-weight: 400; }
+      .section .content p:nth-of-type(1) {
+        margin-bottom: 1.5vh; }
+      .section .content p:nth-of-type(2) {
+        margin-top: 1.5vh; }
+      .section .content p mark {
+        color: inherit;
+        background-color: transparent;
+        font-size: 1.3rem; }
+      .section .content p b {
+        font-weight: 600; }
 
 .mb-0 {
-  margin-bottom: 0 !important;
-}
+  margin-bottom: 0 !important; }
 
 .mt-0 {
-  margin-top: 0 !important;
-}
+  margin-top: 0 !important; }
 
 /*# sourceMappingURL=style.css.map */

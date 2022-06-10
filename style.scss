@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700&display=swap');
 
-$black: rgba(0, 0, 0, 0.83);
+$semiblack: rgba(0, 0, 0, 0.83);
+$black: rgba(0, 0, 0, 1);
+$semiwhite: rgba(255, 255, 255, 0.83);
 $white: rgba(255, 255, 255, 1);
-$theme-light: #787dab;
-$theme-dark: #2d2f40;
+$theme-light-accent: #9787d4;
+$theme-dark-background: #453837;
+$theme-dark-accent: #dfe6bb;
 
 * {
     box-sizing: border-box;
@@ -13,10 +16,40 @@ $theme-dark: #2d2f40;
     font-size: min(15px, calc(11px + .3vw));
 }
 
-::selection {
-    background-color: $theme-dark;
-    color: white;
+body.dark {
+    background-color: $theme-dark-background;
+    color: $semiwhite;
+
+    ::selection {
+        background-color: $semiwhite;
+        color: $theme-dark-background;
+    }
+
+    a {
+        color: $theme-dark-accent;
+        text-decoration-color: $theme-dark-accent;
+    }
+
+    .title img {
+        filter: invert(1);
+    }
 }
+
+body.light {
+    background-color: $white;
+    color: $semiblack;
+
+    ::selection {
+        background-color: $semiblack;
+        color: $white;
+    }
+
+    a {
+        color: $theme-light-accent;
+        text-decoration-color: $theme-light-accent;
+    }
+}
+
 
 html,
 body {
@@ -42,6 +75,8 @@ body {
         width: 192px;
         max-width: 30%;
         margin-left: min(24px, 3.75%);
+        opacity: 0.83;
+        cursor: pointer;
     }
 }
 
@@ -52,7 +87,6 @@ body {
     display: block;
     overflow: hidden;
     margin: 1.5vh auto auto auto;
-    color: $black;
 
     .content {
         line-height: 1.8;
@@ -82,11 +116,6 @@ body {
     
             b {
                 font-weight: 600;
-            }
-    
-            a {
-                color: $theme-light;
-                text-decoration-color: $theme-light;
             }
         }
     }
