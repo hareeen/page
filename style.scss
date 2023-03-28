@@ -5,7 +5,6 @@ $black: rgba(0, 0, 0, 1);
 $semiwhite: rgba(255, 255, 255, 0.83);
 $white: rgba(255, 255, 255, 1);
 $theme-light-accent: #9787d4;
-$theme-dark-background: #453837;
 $theme-dark-accent: #dfe6bb;
 
 * {
@@ -17,12 +16,12 @@ $theme-dark-accent: #dfe6bb;
 }
 
 body.dark {
-    background-color: $theme-dark-background;
+    background-color: $black;
     color: $semiwhite;
 
     ::selection {
         background-color: $semiwhite;
-        color: $theme-dark-background;
+        color: $black;
     }
 
     a {
@@ -56,7 +55,6 @@ body {
     height: 100%;
     font-family: "proxima-nova", "Pretendard Variable", sans-serif;
     position: relative;
-    background-color: $white;
     margin: 0;
 }
 
