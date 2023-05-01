@@ -6,6 +6,8 @@ $semiwhite: rgba(255, 255, 255, 0.83);
 $white: rgba(255, 255, 255, 1);
 $theme-light-accent: #9787d4;
 $theme-dark-accent: #dfe6bb;
+$theme-light-background: #ffffff;
+$theme-dark-background: #14171a;
 
 * {
     box-sizing: border-box;
@@ -16,7 +18,7 @@ $theme-dark-accent: #dfe6bb;
 }
 
 body.dark {
-    background-color: $black;
+    background-color: $theme-dark-background;
     color: $semiwhite;
 
     ::selection {
@@ -35,7 +37,7 @@ body.dark {
 }
 
 body.light {
-    background-color: $white;
+    background-color: $theme-light-background;
     color: $semiblack;
 
     ::selection {
@@ -97,21 +99,21 @@ body {
             letter-spacing: -0.05ch;
             margin: 3vh 0;
             font-weight: 400;
-    
+
             &:nth-of-type(1) {
                 margin-bottom: 1.5vh;
             }
-    
+
             &:nth-of-type(2) {
                 margin-top: 1.5vh;
             }
-    
+
             mark {
                 color: inherit;
                 background-color: transparent;
                 font-size: 1.3rem;
             }
-    
+
             b {
                 font-weight: 600;
             }
