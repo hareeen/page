@@ -19,11 +19,11 @@ $theme-dark-background: #14171a;
 
 body.dark {
     background-color: $theme-dark-background;
-    color: $semiwhite;
+    color: $white;
 
     ::selection {
-        background-color: $semiwhite;
-        color: $black;
+        background-color: $white;
+        color: $theme-dark-background;
     }
 
     a {
@@ -38,11 +38,11 @@ body.dark {
 
 body.light {
     background-color: $theme-light-background;
-    color: $semiblack;
+    color: $black;
 
     ::selection {
-        background-color: $semiblack;
-        color: $white;
+        background-color: $black;
+        color: $theme-light-background;
     }
 
     a {
@@ -75,7 +75,6 @@ body {
         width: 192px;
         max-width: 30%;
         margin-left: min(24px, 3.75%);
-        opacity: 0.83;
         cursor: pointer;
     }
 }
